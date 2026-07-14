@@ -154,11 +154,11 @@
 
   /* AUTOMATE */
   .automate-grid{ margin-top:52px; display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--border); border-radius:12px; overflow:hidden;}
-  .automate-card{ padding:28px 24px; border-right:1px solid var(--border);}
+  .automate-card{ display:flex; flex-direction:column; padding:28px 24px; border-right:1px solid var(--border);}
   .automate-card:last-child{ border-right:none;}
   .automate-card h3{ font-size:15.5px;}
   .automate-card .tasks{ margin-top:14px; font-size:13px; color:var(--ink-secondary); line-height:1.7;}
-  .automate-card .result{ margin-top:16px; font-family:var(--font-mono); font-size:11.5px; color:var(--ink); font-weight:600;}
+  .automate-card .result{ margin-top:auto; padding-top:16px; font-family:var(--font-mono); font-size:11.5px; color:var(--ink); font-weight:600;}
   @media (max-width:900px){ .automate-grid{ grid-template-columns:1fr;} .automate-card{ border-right:none; border-bottom:1px solid var(--border);} }
 
   /* SOLUTIONS */
