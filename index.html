@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.classList.add('js');</script>
-<title>NoctiLabs · Grid</title>
+<title>NoctiLabs · AI agents deployed in production, on your existing stack</title>
+<meta name="description" content="NoctiLabs designs, builds, and operates AI agent systems inside your company's real workflows. No migrations. No 18-month roadmaps. Start with the audit.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CjxnIGZpbGw9IiMwMDAwMDAiPgogIDxyZWN0IHg9IjQiIHk9IjIxIiB3aWR0aD0iNyIgaGVpZ2h0PSI3IiByeD0iMS42Ii8+CiAgPHJlY3QgeD0iMjEiIHk9IjIxIiB3aWR0aD0iNyIgaGVpZ2h0PSI3IiByeD0iMS42Ii8+CiAgPHBhdGggZD0iTTksMjEgQzksOCAyMyw4IDIzLDIxIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwvZz4KPC9zdmc+">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -77,6 +78,8 @@
   .nav-brand{ display:flex; align-items:center; gap:9px; font-weight:700; font-size:14.5px; letter-spacing:-0.01em;}
   .nav-links{ display:flex; gap:26px; font-size:12.5px; letter-spacing:0.03em; text-transform:uppercase; color:var(--ink-secondary);}
   .nav .btn-primary{ padding:9px 18px; font-size:13px;}
+  .lang-toggle{ font-family:var(--font-mono); font-size:12px; font-weight:600; letter-spacing:0.04em; border:1px solid var(--border-strong); background:transparent; color:var(--ink); border-radius:999px; padding:7px 14px; cursor:pointer; transition:transform var(--duration-fast) var(--ease-out), border-color var(--duration-fast) ease, background-color var(--duration-fast) ease;}
+  .lang-toggle:active{ transform:scale(.97);}
   .nav-toggle{ display:none; width:32px; height:32px; border-radius:50%; border:1px solid var(--border-strong); background:transparent; align-items:center; justify-content:center; cursor:pointer; color:var(--ink); padding:0;}
   .nav-toggle{ transition:transform var(--duration-fast) var(--ease-out), border-color var(--duration-fast) ease, background-color var(--duration-fast) ease;}
   .nav-toggle svg{ width:16px; height:16px; overflow:visible;}
@@ -88,7 +91,7 @@
   .nav-mobile-menu.open{ opacity:1; visibility:visible; pointer-events:auto; transform:translateY(0) scale(1); transition-delay:0s;}
   .nav-mobile-menu a:not(.btn){ padding:13px 14px; border-radius:10px; font-size:13px; letter-spacing:0.03em; text-transform:uppercase; color:var(--ink); font-weight:500;}
   .nav-mobile-menu .btn-primary{ margin-top:6px; justify-content:center; padding:12px 14px;}
-  @media (max-width:820px){ .nav-links{ display:none;} .nav .btn-primary{ display:none;} .nav-toggle{ display:flex;} }
+  @media (max-width:820px){ .nav-links{ display:none;} .nav .btn-primary{ display:none;} .nav .lang-toggle{ display:none;} .nav-toggle{ display:flex;} }
   @media (hover:hover) and (pointer:fine){
     .btn-primary:hover{ opacity:.82;}
     .btn-outline:hover{ border-color:var(--ink); background:var(--bg-subtle);}
@@ -96,6 +99,7 @@
     .nav-links a:hover{ color:var(--ink);}
     .nav-mobile-menu a:hover{ background:var(--bg-subtle);}
     .footer-col a:hover{ color:#fff;}
+    .lang-toggle:hover{ background:var(--bg-subtle); border-color:var(--ink);}
   }
 
   /* HERO */
@@ -221,43 +225,45 @@
   <div class="nav">
     <div class="nav-brand">NoctiLabs</div>
     <div class="nav-links">
-      <a href="#how">How it works</a>
-      <a href="#automate">What we automate</a>
-      <a href="/company">Company</a>
-      <a href="/blog">Blog</a>
+      <a href="#how" data-i18n="nav-how">How it works</a>
+      <a href="#automate" data-i18n="nav-automate">What we automate</a>
+      <a href="/company" data-i18n="nav-company">Company</a>
+      <a href="/blog" data-i18n="nav-blog">Blog</a>
     </div>
-    <a href="/book-a-call" class="btn btn-primary">Book a call →</a>
+    <a href="/book-a-call" class="btn btn-primary" data-i18n="book-a-call">Book a call →</a>
+    <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch language">EN</button>
     <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line class="nav-toggle-line nav-toggle-line-top" x1="4" y1="7" x2="20" y2="7"/><line class="nav-toggle-line nav-toggle-line-middle" x1="4" y1="12" x2="20" y2="12"/><line class="nav-toggle-line nav-toggle-line-bottom" x1="4" y1="17" x2="20" y2="17"/></svg>
     </button>
   </div>
 </div>
 <nav class="nav-mobile-menu" id="nav-mobile-menu">
-  <a href="#how">How it works</a>
-  <a href="#automate">What we automate</a>
-  <a href="/company">Company</a>
-  <a href="/blog">Blog</a>
-  <a href="/book-a-call" class="btn btn-primary">Book a call →</a>
+  <a href="#how" data-i18n="nav-how">How it works</a>
+  <a href="#automate" data-i18n="nav-automate">What we automate</a>
+  <a href="/company" data-i18n="nav-company">Company</a>
+  <a href="/blog" data-i18n="nav-blog">Blog</a>
+  <a href="/book-a-call" class="btn btn-primary" data-i18n="book-a-call">Book a call →</a>
+  <button class="lang-toggle" id="lang-toggle-mobile" type="button" aria-label="Switch language" style="margin-top:6px;">EN / ES</button>
 </nav>
 
 <header class="hero">
   <div class="wrap hero-inner">
-    <span class="badge"><span class="ping"></span> Now deploying: Audit → Production</span>
-    <h1>We make operations intelligent.</h1>
-    <p class="hero-sub">AI agent systems, designed, deployed, and improved in production. Built into your real workflows, on your existing stack.</p>
-    <p class="hero-neg">No migrations. No 18-month roadmaps.</p>
+    <span class="badge"><span class="ping"></span> <span data-i18n="hero-badge">Now deploying: Audit → Production</span></span>
+    <h1 data-i18n="hero-h1">We make operations intelligent.</h1>
+    <p class="hero-sub" data-i18n="hero-sub">AI agent systems, designed, deployed, and improved in production. Built into your real workflows, on your existing stack.</p>
+    <p class="hero-neg" data-i18n="hero-neg">No migrations. No 18-month roadmaps.</p>
     <div class="hero-cta">
-      <a href="/book-a-call" class="btn btn-primary">Book a call →</a>
-      <a href="#how" class="btn btn-outline">How it works</a>
+      <a href="/book-a-call" class="btn btn-primary" data-i18n="book-a-call">Book a call →</a>
+      <a href="#how" class="btn btn-outline" data-i18n="nav-how">How it works</a>
     </div>
 
     <div class="code-card">
       <div class="code-bar"><span></span><span></span><span></span></div>
       <div class="code-body">
-        <div><span class="tok-com">// nocti: production deployment</span></div>
+        <div><span class="tok-com" data-i18n="code-1">// nocti: production deployment</span></div>
         <div><span class="tok-key">const</span> <span class="tok-white">audit</span> = <span class="tok-key">await</span> nocti.<span class="tok-white">run</span>({ target: <span class="tok-str">"your-operation"</span> });</div>
-        <div><span class="tok-com">// stage: audit → architecture → deploy → improve</span></div>
-        <div>console.<span class="tok-white">log</span>(audit.status); <span class="tok-com">// "ready to deploy"</span><span class="cursor"></span></div>
+        <div><span class="tok-com" data-i18n="code-2">// stage: audit → architecture → deploy → improve</span></div>
+        <div>console.<span class="tok-white">log</span>(audit.status); <span class="tok-com" data-i18n="code-3">// "ready to deploy"</span><span class="cursor"></span></div>
       </div>
     </div>
   </div>
@@ -265,7 +271,7 @@
 
 <div class="trust">
   <div class="wrap trust-inner">
-    <span>Built on:</span><span>Your existing stack. We are model agnostic.</span>
+    <span data-i18n="trust-built">Built on:</span><span data-i18n="trust-stack">Your existing stack. We are model agnostic.</span>
   </div>
 </div>
 
@@ -273,14 +279,14 @@
   <div class="wrap">
     <div class="manifesto-row">
       <div class="manifesto-col">
-        <span class="eyebrow">The production gap</span>
-        <h2 style="margin-top:14px; font-size:26px; min-height:64px;">Most AI projects never make it to production.</h2>
-        <p class="punch">Getting AI from a working demo into your real operation, real data, real permissions, real edge cases, is where most projects get stuck.</p>
+        <span class="eyebrow" data-i18n="manifesto-eyebrow-1">The production gap</span>
+        <h2 style="margin-top:14px; font-size:26px; min-height:64px;" data-i18n="manifesto-h2-1">Most AI projects never make it to production.</h2>
+        <p class="punch" data-i18n="manifesto-p-1">Getting AI from a working demo into your real operation, real data, real permissions, real edge cases, is where most projects get stuck.</p>
       </div>
       <div class="manifesto-col">
         <span class="eyebrow">AI that ships</span>
-        <h2 style="margin-top:14px; font-size:26px; min-height:64px;">We design and deploy agent systems across your departments.</h2>
-        <p class="punch" style="margin-top:14px;">Built into your real workflows, on your existing stack, with your team.</p>
+        <h2 style="margin-top:14px; font-size:26px; min-height:64px;" data-i18n="manifesto-h2-2">We design and deploy agent systems across your departments.</h2>
+        <p class="punch" style="margin-top:14px;" data-i18n="manifesto-p-2">Built into your real workflows, on your existing stack, with your team.</p>
       </div>
     </div>
 
@@ -354,18 +360,18 @@
 <section class="block gray" id="how">
   <div class="wrap">
     <div data-reveal>
-      <span class="eyebrow">How we do it</span>
-      <h2 style="margin-top:14px;">Four stages, one outcome: production.</h2>
+      <span class="eyebrow" data-i18n="how-eyebrow">How we do it</span>
+      <h2 style="margin-top:14px;" data-i18n="how-h2">Four stages, one outcome: production.</h2>
     </div>
     <div class="stages" data-reveal-group>
-      <div class="stage"><span class="stage-num">01</span><h3>AI Opportunity Audit</h3><p>We map how work actually moves through your teams, systems, and decision points in minutes or days. A prioritized map of where agents create value.</p></div>
-      <div class="stage"><span class="stage-num">02</span><h3>Architecture &amp; Design</h3><p>We design the agent system around how your operation runs: your tools, your data, your logic. Not a template.</p></div>
-      <div class="stage"><span class="stage-num">03</span><h3>Production Deployment</h3><p>We deploy into your live workflows, on the stack you already run. Working agents from day one.</p></div>
-      <div class="stage"><span class="stage-num">04</span><h3>Continuous Improvement</h3><p>We stay on. We sharpen the agents' decision-making and extend them into new work with your team.</p></div>
+      <div class="stage"><span class="stage-num">01</span><h3 data-i18n="stage1-title">AI Opportunity Audit</h3><p data-i18n="stage1-desc">We map how work actually moves through your teams, systems, and decision points in minutes or days. A prioritized map of where agents create value.</p></div>
+      <div class="stage"><span class="stage-num">02</span><h3 data-i18n="stage2-title">Architecture &amp; Design</h3><p data-i18n="stage2-desc">We design the agent system around how your operation runs: your tools, your data, your logic. Not a template.</p></div>
+      <div class="stage"><span class="stage-num">03</span><h3 data-i18n="stage3-title">Production Deployment</h3><p data-i18n="stage3-desc">We deploy into your live workflows, on the stack you already run. Working agents from day one.</p></div>
+      <div class="stage"><span class="stage-num">04</span><h3 data-i18n="stage4-title">Continuous Improvement</h3><p data-i18n="stage4-desc">We stay on. We sharpen the agents' decision-making and extend them into new work with your team.</p></div>
     </div>
     <div data-reveal style="margin-top:40px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-      <a href="#cta" class="btn btn-primary">Start with the audit →</a>
-      <span style="font-family:var(--font-mono); font-size:12.5px; color:var(--ink-secondary);">No commitment beyond it.</span>
+      <a href="#cta" class="btn btn-primary" data-i18n="start-audit">Start with the audit →</a>
+      <span style="font-family:var(--font-mono); font-size:12.5px; color:var(--ink-secondary);" data-i18n="no-commitment">No commitment beyond it.</span>
     </div>
   </div>
 </section>
@@ -373,33 +379,33 @@
 <section class="block" id="automate">
   <div class="wrap">
     <div data-reveal>
-      <span class="eyebrow">What we automate</span>
-      <h2 style="margin-top:14px;">Entire workflows, not isolated tasks.</h2>
-      <p class="block-lede">We don't automate a task and call it transformation. We map how a full workflow actually runs, then build the agents that run it, end to end, on the systems you already use.</p>
+      <span class="eyebrow" data-i18n="nav-automate">What we automate</span>
+      <h2 style="margin-top:14px;" data-i18n="automate-h2">Entire workflows, not isolated tasks.</h2>
+      <p class="block-lede" data-i18n="automate-lede">We don't automate a task and call it transformation. We map how a full workflow actually runs, then build the agents that run it, end to end, on the systems you already use.</p>
     </div>
     <div class="automate-grid" data-reveal-group>
-      <div class="automate-card"><h3>Operations</h3><p class="tasks">Report assembly · approval routing · exception handling · cross-system data entry</p><p class="result">→ Ships without the backlog</p></div>
-      <div class="automate-card"><h3>Sales</h3><p class="tasks">Quote generation · follow-up sequencing · CRM hygiene · order intake</p><p class="result">→ Reps sell, not update records</p></div>
-      <div class="automate-card"><h3>Finance</h3><p class="tasks">Reconciliation · invoice processing · close readiness · compliance reporting</p><p class="result">→ Close in days, not weeks</p></div>
-      <div class="automate-card"><h3>&amp; Beyond</h3><p class="tasks">Procurement · onboarding · document intake · ticket triage</p><p class="result">→ Wherever hours get lost</p></div>
+      <div class="automate-card"><h3 data-i18n="ops-title">Operations</h3><p class="tasks" data-i18n="ops-tasks">Report assembly · approval routing · exception handling · cross-system data entry</p><p class="result" data-i18n="ops-result">→ Ships without the backlog</p></div>
+      <div class="automate-card"><h3 data-i18n="sales-title">Sales</h3><p class="tasks" data-i18n="sales-tasks">Quote generation · follow-up sequencing · CRM hygiene · order intake</p><p class="result" data-i18n="sales-result">→ Reps sell, not update records</p></div>
+      <div class="automate-card"><h3 data-i18n="finance-title">Finance</h3><p class="tasks" data-i18n="finance-tasks">Reconciliation · invoice processing · close readiness · compliance reporting</p><p class="result" data-i18n="finance-result">→ Close in days, not weeks</p></div>
+      <div class="automate-card"><h3 data-i18n="beyond-title">&amp; Beyond</h3><p class="tasks" data-i18n="beyond-tasks">Procurement · onboarding · document intake · ticket triage</p><p class="result" data-i18n="beyond-result">→ Wherever hours get lost</p></div>
     </div>
   </div>
 </section>
 
 <section class="block bridge-block">
   <div class="wrap" data-reveal>
-    <span class="eyebrow">Why Nocti</span>
-    <h2 style="margin-top:14px;">We build the bridge.</h2>
-    <p class="block-lede">Most platforms hand you the software and leave you alone to get it into production. Tools don't close the Production Gap. Engineering does.<br><br><strong>Nocti is platform + engineering team:</strong> we architect, deploy, and improve your agents in production, shoulder to shoulder with you and your team.</p>
+    <span class="eyebrow" data-i18n="bridge-eyebrow">Why Nocti</span>
+    <h2 style="margin-top:14px;" data-i18n="bridge-h2">We build the bridge.</h2>
+    <p class="block-lede" data-i18n="bridge-lede">Most platforms hand you the software and leave you alone to get it into production. Tools don't close the Production Gap. Engineering does.<br><br><strong>Nocti is platform + engineering team:</strong> we architect, deploy, and improve your agents in production, shoulder to shoulder with you and your team.</p>
   </div>
 </section>
 
 <section class="cta" id="cta">
   <div class="wrap" data-reveal>
-    <span class="eyebrow" style="color:var(--ink-muted);">Let's talk</span>
-    <h2 style="margin-top:14px;">Ready to close your Production Gap?</h2>
-    <p>Start with the audit: a prioritized map of where agents create the most value in your operation. No commitment beyond it.</p>
-    <div class="hero-cta"><a href="/book-a-call" class="btn btn-primary">Book a call →</a></div>
+    <span class="eyebrow" style="color:var(--ink-muted);" data-i18n="cta-eyebrow">Let's talk</span>
+    <h2 style="margin-top:14px;" data-i18n="cta-h2">Ready to close your Production Gap?</h2>
+    <p data-i18n="cta-p">Start with the audit: a prioritized map of where agents create the most value in your operation. No commitment beyond it.</p>
+    <div class="hero-cta"><a href="/book-a-call" class="btn btn-primary" data-i18n="book-a-call">Book a call →</a></div>
   </div>
 </section>
 
@@ -407,13 +413,13 @@
   <div class="wrap">
     <div class="footer-cols">
       <div class="footer-col">
-        <h4>Services</h4>
-        <a href="#how">AI Opportunity Audit</a>
-        <a href="#how">Map &amp; Architecture</a>
-        <a href="#how">Production Deployment</a>
-        <a href="#how">Continuous Improvement</a>
+        <h4 data-i18n="footer-services">Services</h4>
+        <a href="#how" data-i18n="stage1-title">AI Opportunity Audit</a>
+        <a href="#how" data-i18n="footer-map">Map &amp; Architecture</a>
+        <a href="#how" data-i18n="stage3-title">Production Deployment</a>
+        <a href="#how" data-i18n="stage4-title">Continuous Improvement</a>
         <div class="footer-office">
-          <h4>Offices</h4>
+          <h4 data-i18n="footer-offices">Offices</h4>
           <span>Montevideo, Uruguay</span>
           <span>Piedras 544, Montevideo, Uruguay 11000</span>
           <span style="margin-top:14px;">Los Angeles, California, USA</span>
@@ -421,27 +427,27 @@
         </div>
       </div>
       <div class="footer-col">
-        <h4>Industries</h4>
-        <a href="#">Retail &amp; Fashion</a>
-        <a href="#">Food &amp; Beverages</a>
-        <a href="#">Consumer Goods / CPG</a>
-        <a href="#">Heavy Industry &amp; Manufacturing</a>
-        <a href="#">Energy &amp; Natural Resources</a>
-        <a href="#">Rental / Services</a>
-        <a href="#">Travel &amp; Hospitality</a>
-        <a href="#">Media &amp; Entertainment</a>
+        <h4 data-i18n="footer-industries">Industries</h4>
+        <a href="#" data-i18n="ind-retail">Retail &amp; Fashion</a>
+        <a href="#" data-i18n="ind-food">Food &amp; Beverages</a>
+        <a href="#" data-i18n="ind-cpg">Consumer Goods / CPG</a>
+        <a href="#" data-i18n="ind-heavy">Heavy Industry &amp; Manufacturing</a>
+        <a href="#" data-i18n="ind-energy">Energy &amp; Natural Resources</a>
+        <a href="#" data-i18n="ind-rental">Rental / Services</a>
+        <a href="#" data-i18n="ind-travel">Travel &amp; Hospitality</a>
+        <a href="#" data-i18n="ind-media">Media &amp; Entertainment</a>
       </div>
       <div class="footer-col">
-        <h4>Blog</h4>
-        <a href="/blog">Insights</a>
+        <h4 data-i18n="nav-blog">Blog</h4>
+        <a href="/blog" data-i18n="footer-insights">Insights</a>
       </div>
       <div class="footer-col">
-        <h4>Company</h4>
-        <a href="/company">About us</a>
-        <a href="mailto:hello@noctilabs.io">Contact</a>
+        <h4 data-i18n="nav-company">Company</h4>
+        <a href="/company" data-i18n="footer-about">About us</a>
+        <a href="mailto:hello@noctilabs.io" data-i18n="footer-contact">Contact</a>
       </div>
       <div class="footer-col">
-        <h4>Connect</h4>
+        <h4 data-i18n="footer-connect">Connect</h4>
         <a href="#">LinkedIn</a>
         <a href="#">X</a>
       </div>
@@ -500,6 +506,116 @@
     entries.forEach(function(entry){ if(entry.isIntersecting){ entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
   },{threshold:.15,rootMargin:'0px 0px -8% 0px'});
   items.forEach(function(item){ observer.observe(item); });
+})();
+</script>
+
+<script>
+(function(){
+  var ES = {
+    "nav-how": "Cómo trabajamos",
+    "nav-automate": "Qué automatizamos",
+    "nav-company": "Empresa",
+    "nav-blog": "Blog",
+    "book-a-call": "Agendar una llamada →",
+    "hero-badge": "Ahora desplegando: Auditoría → Producción",
+    "hero-h1": "Hacemos que las operaciones sean inteligentes.",
+    "hero-sub": "Sistemas de agentes de IA, diseñados, desplegados y mejorados en producción. Integrados a tus flujos de trabajo reales, sobre tu stack existente.",
+    "hero-neg": "Sin migraciones. Sin roadmaps de 18 meses.",
+    "code-1": "// nocti: despliegue en producción",
+    "code-2": "// etapa: auditoría → arquitectura → despliegue → mejora",
+    "code-3": "// \"listo para desplegar\"",
+    "trust-built": "Construido sobre:",
+    "trust-stack": "Tu stack existente. Somos agnósticos de modelo.",
+    "manifesto-eyebrow-1": "El Production Gap",
+    "manifesto-h2-1": "La mayoría de los proyectos de IA nunca llegan a producción.",
+    "manifesto-p-1": "Llevar la IA de una demo funcional a tu operación real, con datos reales, permisos reales, casos límite reales, es donde la mayoría de los proyectos se traba.",
+    "manifesto-h2-2": "Diseñamos y desplegamos sistemas de agentes en todas tus áreas.",
+    "manifesto-p-2": "Integrados a tus flujos de trabajo reales, sobre tu stack existente, con tu equipo.",
+    "how-eyebrow": "Cómo lo hacemos",
+    "how-h2": "Cuatro etapas, un solo resultado: producción.",
+    "stage1-title": "Auditoría de Oportunidades de IA",
+    "stage1-desc": "Mapeamos cómo se mueve realmente el trabajo entre tus equipos, sistemas y puntos de decisión en minutos o días. Un mapa priorizado de dónde los agentes generan valor.",
+    "stage2-title": "Arquitectura y Diseño",
+    "stage2-desc": "Diseñamos el sistema de agentes en base a cómo funciona tu operación: tus herramientas, tus datos, tu lógica. No es una plantilla.",
+    "stage3-title": "Despliegue en Producción",
+    "stage3-desc": "Desplegamos en tus flujos de trabajo activos, sobre el stack que ya usás. Agentes funcionando desde el primer día.",
+    "stage4-title": "Mejora Continua",
+    "stage4-desc": "Seguimos ahí. Afinamos la toma de decisiones de los agentes y los extendemos a nuevo trabajo junto a tu equipo.",
+    "start-audit": "Empezá con la auditoría →",
+    "no-commitment": "Sin compromiso más allá de eso.",
+    "automate-h2": "Flujos de trabajo completos, no tareas aisladas.",
+    "automate-lede": "No automatizamos una tarea y le decimos transformación. Mapeamos cómo funciona un flujo de trabajo completo, y después construimos los agentes que lo ejecutan, de punta a punta, sobre los sistemas que ya usás.",
+    "ops-title": "Operaciones",
+    "ops-tasks": "Armado de reportes · ruteo de aprobaciones · manejo de excepciones · carga de datos entre sistemas",
+    "ops-result": "→ Sale sin backlog acumulado",
+    "sales-title": "Ventas",
+    "sales-tasks": "Generación de cotizaciones · secuencias de seguimiento · limpieza del CRM · carga de pedidos",
+    "sales-result": "→ Los vendedores venden, no cargan datos",
+    "finance-title": "Finanzas",
+    "finance-tasks": "Conciliación · procesamiento de facturas · cierre contable · reportes de compliance",
+    "finance-result": "→ Cierre en días, no semanas",
+    "beyond-title": "Y más",
+    "beyond-tasks": "Compras · onboarding · ingesta de documentos · triage de tickets",
+    "beyond-result": "→ Donde sea que se pierdan horas",
+    "bridge-eyebrow": "Por qué Nocti",
+    "bridge-h2": "We build the bridge.",
+    "bridge-lede": "La mayoría de las plataformas te dan el software y te dejan solo para llevarlo a producción. Las herramientas no cierran el Production Gap. La ingeniería sí.<br><br><strong>Nocti es plataforma + equipo de ingeniería:</strong> arquitecturamos, desplegamos y mejoramos tus agentes en producción, codo a codo con vos y tu equipo.",
+    "cta-eyebrow": "Hablemos",
+    "cta-h2": "¿Listo para cerrar tu Production Gap?",
+    "cta-p": "Empezá con la auditoría: un mapa priorizado de dónde los agentes generan más valor en tu operación. Sin compromiso más allá de eso.",
+    "footer-services": "Servicios",
+    "footer-map": "Mapeo y Arquitectura",
+    "footer-offices": "Oficinas",
+    "footer-industries": "Industrias",
+    "ind-retail": "Retail y Moda",
+    "ind-food": "Alimentos y Bebidas",
+    "ind-cpg": "Bienes de Consumo / CPG",
+    "ind-heavy": "Industria Pesada y Manufactura",
+    "ind-energy": "Energía y Recursos Naturales",
+    "ind-rental": "Alquiler / Servicios",
+    "ind-travel": "Viajes y Hospitalidad",
+    "ind-media": "Medios y Entretenimiento",
+    "footer-insights": "Artículos",
+    "footer-about": "Sobre nosotros",
+    "footer-contact": "Contacto",
+    "footer-connect": "Seguinos"
+  };
+
+  var nodes = document.querySelectorAll('[data-i18n]');
+  var EN = {};
+  nodes.forEach(function(el){
+    var key = el.getAttribute('data-i18n');
+    if(!(key in EN)) EN[key] = [];
+    EN[key].push(el);
+  });
+
+  var current = 'en';
+  function apply(lang){
+    Object.keys(EN).forEach(function(key){
+      EN[key].forEach(function(el){
+        if(lang === 'es' && ES[key]){
+          if(!el.hasAttribute('data-en-cache')) el.setAttribute('data-en-cache', el.innerHTML);
+          el.innerHTML = ES[key];
+        } else if(el.hasAttribute('data-en-cache')){
+          el.innerHTML = el.getAttribute('data-en-cache');
+        }
+      });
+    });
+    document.documentElement.setAttribute('lang', lang);
+    current = lang;
+    var label = lang === 'es' ? 'ES' : 'EN';
+    var btn1 = document.getElementById('lang-toggle');
+    var btn2 = document.getElementById('lang-toggle-mobile');
+    if(btn1) btn1.textContent = label;
+    if(btn2) btn2.textContent = label + ' / ' + (lang === 'es' ? 'EN' : 'ES');
+  }
+
+  function toggle(){ apply(current === 'en' ? 'es' : 'en'); }
+
+  var t1 = document.getElementById('lang-toggle');
+  var t2 = document.getElementById('lang-toggle-mobile');
+  if(t1) t1.addEventListener('click', toggle);
+  if(t2) t2.addEventListener('click', toggle);
 })();
 </script>
 

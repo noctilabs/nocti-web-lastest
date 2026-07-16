@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NoctiLabs · What actually happens in an AI opportunity audit</title>
+<meta name="description" content="Not a binder of findings. A short, ranked list of where agents create the most value in your operation, tied to your actual systems.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CjxnIGZpbGw9IiMwMDAwMDAiPgogIDxyZWN0IHg9IjQiIHk9IjIxIiB3aWR0aD0iNyIgaGVpZ2h0PSI3IiByeD0iMS42Ii8+CiAgPHJlY3QgeD0iMjEiIHk9IjIxIiB3aWR0aD0iNyIgaGVpZ2h0PSI3IiByeD0iMS42Ii8+CiAgPHBhdGggZD0iTTksMjEgQzksOCAyMyw4IDIzLDIxIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwvZz4KPC9zdmc+">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -64,6 +65,14 @@
   .article-body .pull{ font-family:var(--font-display); font-weight:600; font-size:22px; color:var(--ink); line-height:1.45; margin:36px 0; letter-spacing:-0.01em;}
 
   .article-cta{ max-width:680px; margin:0 auto; padding:20px 32px 100px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+  .toc{ position:fixed; top:0; left:max(24px, calc((100vw - 680px)/2 - 250px)); width:210px; display:none;}
+  @media (min-width:1200px){ .toc{ display:block;} }
+  .toc-title{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:14px;}
+  .toc a{ position:relative; display:block; padding:6px 0 6px 20px; font-size:13px; color:var(--ink-muted); line-height:1.4; transition:color .15s;}
+  .toc a::before{ content:""; position:absolute; left:0; top:50%; transform:translateY(-50%); width:7px; height:7px; border-radius:50%; border:1.5px solid var(--border-strong); background:transparent; transition:background .15s, border-color .15s;}
+  .toc a:hover{ color:var(--ink);}
+  .toc a.active{ color:var(--ink); font-weight:600;}
+  .toc a.active::before{ background:var(--ink); border-color:var(--ink);}
   .article-cta span{ font-family:var(--font-mono); font-size:12.5px; color:var(--ink-muted);}
 
   .footer-rich{ background:linear-gradient(120deg, #000000, #101014, #050507, #0c0c10, #000000); background-size:300% 300%; animation:footerGradient 16s ease infinite; color:#fff; padding:90px 0 0; overflow:hidden;}
@@ -210,6 +219,45 @@
       toggle.setAttribute('aria-expanded', 'false');
     });
   });
+})();
+</script>
+
+<script>
+(function(){
+  var headings = Array.prototype.slice.call(document.querySelectorAll(".article-body h2"));
+  if(!headings.length) return;
+  var toc = document.createElement("nav");
+  toc.className = "toc";
+  toc.setAttribute("aria-label", "Table of contents");
+  var title = document.createElement("div");
+  title.className = "toc-title";
+  title.textContent = "On this page";
+  toc.appendChild(title);
+  var links = headings.map(function(h, i){
+    if(!h.id) h.id = "section-" + (i + 1);
+    var a = document.createElement("a");
+    a.href = "#" + h.id;
+    a.textContent = h.textContent;
+    toc.appendChild(a);
+    return a;
+  });
+  document.body.appendChild(toc);
+  function onScroll(){
+    var current = -1;
+    for(var i = 0; i < headings.length; i++){
+      if(headings[i].getBoundingClientRect().top < window.innerHeight * 0.4) current = i;
+    }
+    links.forEach(function(a, i){ a.classList.toggle("active", i === current); });
+  }
+  var head = document.querySelector(".article-head");
+  function positionToc(){
+    var anchor = head ? head.getBoundingClientRect().bottom + 60 : 140;
+    toc.style.top = Math.max(140, anchor) + "px";
+  }
+  window.addEventListener("scroll", function(){ positionToc(); onScroll(); }, {passive:true});
+  window.addEventListener("resize", positionToc);
+  positionToc();
+  onScroll();
 })();
 </script>
 
