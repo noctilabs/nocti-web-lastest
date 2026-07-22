@@ -81,6 +81,10 @@
   .field input:focus, .field select:focus, .field textarea:focus{ border-color:var(--ink);}
   .form-submit{ margin-top:22px; width:100%;}
   .form-note{ margin-top:14px; font-family:var(--font-mono); font-size:11px; color:var(--ink-muted); text-align:center;}
+  .form-status{ margin-top:14px; font-family:var(--font-mono); font-size:12.5px; text-align:center; padding:10px 14px; border-radius:8px;}
+  .form-status.is-success{ color:#0a7a3d; background:rgba(10,122,61,0.08); border:1px solid rgba(10,122,61,0.2);}
+  .form-status.is-error{ color:#b3261e; background:rgba(179,38,30,0.08); border:1px solid rgba(179,38,30,0.2);}
+  .form-submit[disabled]{ opacity:0.6; cursor:not-allowed;}
 
   .schedule-panel{ background:var(--bg-alt); text-align:center; display:flex; flex-direction:column; align-items:center;}
   .schedule-title{ font-size:19px; font-weight:700;}
@@ -186,7 +190,11 @@
       <div class="form-title" data-i18n="bc-form-title">Tell us about your operation</div>
       <p class="form-sub" data-i18n="bc-form-sub">We'll get back to you within a business day.</p>
 
-      <form class="form-grid" onsubmit="event.preventDefault();">
+      <form class="form-grid" id="operation-form">
+        <input type="hidden" name="access_key" value="ce1c643c-7ad1-4bd9-9cb7-bb936e74eaa4">
+        <input type="hidden" name="subject" value="New inquiry from noctilabs.io">
+        <input type="hidden" name="from_name" value="NoctiLabs website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <div class="field">
           <label for="fname" data-i18n="bc-fname">First name</label>
           <input type="text" id="fname" name="fname" required>
@@ -241,9 +249,10 @@
           <textarea id="message" name="message" data-i18n-ph="bc-message-ph" placeholder="Tell us about the workflow, team, or systems you'd like to start with."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary form-submit" style="grid-column:1/-1;" data-i18n="bc-submit">Send message →</button>
+        <button type="submit" class="btn btn-primary form-submit" id="operation-form-submit" style="grid-column:1/-1;" data-i18n="bc-submit">Send message →</button>
       </form>
-      <p class="form-note" data-i18n="bc-note">No commitment beyond the audit.</p>
+      <p class="form-status" id="operation-form-status" role="status" aria-live="polite" hidden></p>
+      <p class="form-note" id="operation-form-note" data-i18n="bc-note">No commitment beyond the audit.</p>
     </div>
 
     <div class="panel schedule-panel">
@@ -375,6 +384,57 @@
   overlay.addEventListener('click', function(event){ if(event.target === overlay) closeModal(); });
   document.addEventListener('keydown', function(event){
     if(event.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var form = document.getElementById('operation-form');
+  var submitBtn = document.getElementById('operation-form-submit');
+  var status = document.getElementById('operation-form-status');
+  if(!form || !submitBtn || !status) return;
+
+  var STRINGS = {
+    sending: { en: 'Sending…', es: 'Enviando…' },
+    success: { en: 'Thanks — we\'ll get back to you within a business day.', es: 'Gracias — te contactamos dentro de un día hábil.' },
+    error: { en: 'Something went wrong. Please try again, or email us directly.', es: 'Algo salió mal. Probá de nuevo o escribinos directamente.' }
+  };
+  function lang(){ return document.documentElement.getAttribute('lang') === 'es' ? 'es' : 'en'; }
+  function showStatus(kind, key){
+    status.hidden = false;
+    status.className = 'form-status is-' + kind;
+    status.textContent = STRINGS[key][lang()];
+  }
+
+  form.addEventListener('submit', function(event){
+    event.preventDefault();
+    var submitLabel = submitBtn.innerHTML;
+    submitBtn.setAttribute('disabled', 'true');
+    submitBtn.textContent = STRINGS.sending[lang()];
+    status.hidden = true;
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    })
+      .then(function(res){ return res.json().then(function(data){ return { ok: res.ok, data: data }; }); })
+      .then(function(result){
+        if(result.ok && result.data && result.data.success){
+          showStatus('success', 'success');
+          form.reset();
+        } else {
+          showStatus('error', 'error');
+        }
+      })
+      .catch(function(){
+        showStatus('error', 'error');
+      })
+      .finally(function(){
+        submitBtn.removeAttribute('disabled');
+        submitBtn.innerHTML = submitLabel;
+      });
   });
 })();
 </script>
