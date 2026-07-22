@@ -116,7 +116,7 @@
   /* SCHEDULE MODAL */
   .modal-overlay{ position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:20px; background:rgba(5,5,9,0.92); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); opacity:0; visibility:hidden; pointer-events:none; transition:opacity var(--duration-standard) ease, visibility 0s linear var(--duration-standard);}
   .modal-overlay.open{ opacity:1; visibility:visible; pointer-events:auto; transition:opacity var(--duration-standard) ease;}
-  .modal-panel{ position:relative; width:100%; max-width:900px; height:min(760px, 88vh); background:var(--bg); border-radius:16px; box-shadow:0 30px 80px rgba(0,0,0,0.35); overflow:hidden; display:flex; flex-direction:column; transform:translateY(12px) scale(.98); transition:transform var(--duration-standard) var(--ease-out);}
+  .modal-panel{ position:relative; width:100%; max-width:1180px; height:min(820px, 90vh); background:var(--bg); border-radius:16px; box-shadow:0 30px 80px rgba(0,0,0,0.35); overflow:hidden; display:flex; flex-direction:column; transform:translateY(12px) scale(.98); transition:transform var(--duration-standard) var(--ease-out);}
   .modal-overlay.open .modal-panel{ transform:translateY(0) scale(1);}
   .modal-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 16px 14px 20px; border-bottom:1px solid var(--border);}
   .modal-title{ font-family:var(--font-mono); font-size:12px; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-secondary);}
