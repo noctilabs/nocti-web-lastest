@@ -146,24 +146,6 @@
   @keyframes fluidDiagonal{ 0%,100%{transform:translate3d(-60px,40px,0)} 50%{transform:translate3d(60px,-40px,0)} }
   @keyframes fluidSpin{ to{transform:rotate(360deg)} }
 
-  /* code block */
-  .code-card{
-    position:relative; z-index:9; margin:56px auto 0; max-width:720px; background:#0A0A0A; border-radius:12px 12px 0 0;
-    text-align:left; overflow:hidden; border:1px solid #1c1c1c; border-bottom:none;
-    box-shadow:0 30px 70px rgba(0,0,0,0.12);
-  }
-  @media (min-width:900px){
-    .code-card{ width:100%;}
-  }
-  .code-bar{ display:flex; gap:6px; padding:12px 16px; border-bottom:1px solid #1c1c1c;}
-  .code-bar span{ width:9px; height:9px; border-radius:50%; background:#2a2a2a;}
-  .code-body{ padding:22px 24px; font-family:var(--font-mono); font-size:12.5px; line-height:1.9;}
-  .tok-key{ color:#79b8ff;}
-  .tok-str{ color:#9ecbff;}
-  .tok-com{ color:#6a737d;}
-  .tok-white{ color:#e6e6e6;}
-  .cursor{ display:inline-block; width:6px; height:13px; background:#fff; vertical-align:middle; animation:blink 1s steps(1) infinite;}
-  @keyframes blink{ 50%{opacity:0;} }
   @media (max-width:560px){ .blob-field{ filter:blur(26px); } }
   /* TRUST */
   .trust{ padding:22px 0; border-bottom:1px solid var(--border);}
@@ -256,7 +238,7 @@
   .js [data-reveal-group] > :nth-child(2){ transition-delay:40ms;}
   .js [data-reveal-group] > :nth-child(3){ transition-delay:80ms;}
   .js [data-reveal-group] > :nth-child(4){ transition-delay:120ms;}
-  @media (prefers-reduced-motion: reduce){ .cursor,.fluid-stage,.fluid-bubble,.fluid-two-orbit,.fluid-three-orbit,.fluid-five-orbit{ animation:none;} .fluid-stage{opacity:1;} html{scroll-behavior:auto;} .gap-dot{ animation:none;} .gap-dash{ animation:none;} .nav-mobile-menu{ transform:none; transition:opacity var(--duration-fast) ease, visibility 0s linear var(--duration-fast);} .nav-mobile-menu.open{ transform:none;} .nav-toggle-line{ transition:none;} .js [data-reveal]{ opacity:1; transform:none; transition:none;} .js [data-reveal-group] > *{ opacity:1; transform:none; transition:none;} }
+  @media (prefers-reduced-motion: reduce){ .fluid-stage,.fluid-bubble,.fluid-two-orbit,.fluid-three-orbit,.fluid-five-orbit{ animation:none;} .fluid-stage{opacity:1;} html{scroll-behavior:auto;} .gap-dot{ animation:none;} .gap-dash{ animation:none;} .nav-mobile-menu{ transform:none; transition:opacity var(--duration-fast) ease, visibility 0s linear var(--duration-fast);} .nav-mobile-menu.open{ transform:none;} .nav-toggle-line{ transition:none;} .js [data-reveal]{ opacity:1; transform:none; transition:none;} .js [data-reveal-group] > *{ opacity:1; transform:none; transition:none;} }
 </style>
 </head>
 <body>
@@ -308,23 +290,13 @@
   </div>
   <div class="wrap hero-inner">
     <div class="hero-copy">
-      <span class="badge"><span class="ping"></span> <span data-i18n="hero-badge">First deployment starts with an audit</span></span>
+      <span class="badge"><span class="ping"></span> <span data-i18n="hero-badge">Every deployment starts with the audit</span></span>
       <h1 data-i18n="hero-h1">Company memory that works.</h1>
       <p class="hero-sub" data-i18n="hero-sub">NoctiLabs turns how your operation runs into AI agents that run it: live, every day.</p>
       <p class="hero-neg" data-i18n="hero-neg">No migrations. No 18-month roadmaps.</p>
       <div class="hero-cta">
         <a href="/book-a-call" class="btn btn-primary" data-i18n="book-a-call">Book a call →</a>
         <a href="#how" class="btn btn-outline" data-i18n="nav-how">How it works</a>
-      </div>
-    </div>
-
-    <div class="code-card">
-      <div class="code-bar"><span></span><span></span><span></span></div>
-      <div class="code-body">
-        <div><span class="tok-com" data-i18n="code-1">// nocti: production deployment</span></div>
-        <div><span class="tok-key">const</span> <span class="tok-white">audit</span> = <span class="tok-key">await</span> nocti.<span class="tok-white">run</span>({ target: <span class="tok-str">"your-operation"</span> });</div>
-        <div><span class="tok-com" data-i18n="code-2">// stage: audit → architecture → deploy → improve</span></div>
-        <div>console.<span class="tok-white">log</span>(audit.status); <span class="tok-com" data-i18n="code-3">// "ready to deploy"</span><span class="cursor"></span></div>
       </div>
     </div>
   </div>
@@ -341,8 +313,8 @@
     <div class="manifesto-row">
       <div class="manifesto-col">
         <span class="eyebrow" data-i18n="manifesto-eyebrow-1">AI doesn't fail on the model. It fails on the context.</span>
-        <h2 style="margin-top:14px; font-size:26px; min-height:64px;" data-i18n="manifesto-h2-1">Most AI projects never make it to production.</h2>
-        <p class="punch" data-i18n="manifesto-p-1">For AI to work in your real operation, it has to know how your operation works: your data, your permissions, your exceptions, the rules nobody wrote down. That knowledge lives in your team's heads. That's why the demo works and production doesn't.</p>
+        <h2 style="margin-top:14px; font-size:26px; min-height:64px;" data-i18n="manifesto-h2-1">Most AI never reaches production.</h2>
+        <p class="punch" data-i18n="manifesto-p-1">And it's almost never the model. To run in your operation, AI has to know how it works: your permissions, your exceptions, the rules nobody wrote down. That lives in your team's heads, which is why the demo works and production doesn't.</p>
       </div>
       <div class="manifesto-col">
         <span class="eyebrow">AI that ships</span>
@@ -586,18 +558,15 @@
     "nav-company": "Empresa",
     "nav-blog": "Blog",
     "book-a-call": "Agendar Una Llamada →",
-    "hero-badge": "El primer despliegue empieza con una auditoría",
+    "hero-badge": "Cada despliegue empieza con la auditoría",
     "hero-h1": "Memoria empresarial que funciona.",
     "hero-sub": "NoctiLabs convierte la forma en que funciona tu operación en agentes de IA que la ejecutan: en vivo, todos los días.",
     "hero-neg": "Sin migraciones. Sin roadmaps de 18 meses.",
-    "code-1": "// nocti: despliegue en producción",
-    "code-2": "// etapa: auditoría → arquitectura → despliegue → mejora",
-    "code-3": "// \"listo para desplegar\"",
     "trust-built": "Construido sobre:",
     "trust-stack": "Tu stack existente. Somos agnósticos de modelo.",
     "manifesto-eyebrow-1": "La IA no falla en el modelo. Falla en el contexto.",
-    "manifesto-h2-1": "La mayoría de los proyectos de IA nunca llegan a producción.",
-    "manifesto-p-1": "Para que la IA funcione en tu operación real, tiene que entender cómo funciona tu operación: tus datos, tus permisos, tus excepciones, las reglas que nadie escribió. Ese conocimiento vive en la cabeza de tu equipo. Por eso la demo funciona y la producción no.",
+    "manifesto-h2-1": "La mayoría de la IA nunca llega a producción.",
+    "manifesto-p-1": "Y casi nunca es por el modelo. Para funcionar en tu operación, la IA tiene que saber cómo funciona: tus permisos, tus excepciones, las reglas que nadie escribió. Eso vive en la cabeza de tu equipo, por eso la demo funciona y la producción no.",
     "manifesto-h2-2": "Extraemos cómo funciona tu operación",
     "manifesto-p-2": "Extraemos cómo funciona realmente tu operación y lo convertimos en la memoria sobre la que corren tus agentes: en vivo, todos los días, sobre el stack que ya usás.",
     "how-eyebrow": "Cómo lo hacemos",
