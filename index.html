@@ -266,10 +266,11 @@
   @media (max-width:900px){ .hw-deploy-grid{ grid-template-columns:1fr 1fr;} }
   @media (max-width:700px){ .hw-deploy-grid{ grid-template-columns:1fr;} }
 
-  .hw-bignum{ padding:22px 32px; border-bottom:1px solid var(--border); display:flex; align-items:baseline; gap:14px; background:var(--bg-subtle);}
+  .hw-bignum{ padding:30px 32px 22px; border-bottom:1px solid var(--border); display:flex; align-items:baseline; gap:14px; background:var(--bg-subtle);}
   .hw-bignum .n{ font-family:var(--font-mono); font-size:26px; font-weight:600;}
   .hw-bignum .l{ font-family:var(--font-mono); font-size:10px; color:var(--ink-muted); letter-spacing:0.05em; text-transform:uppercase;}
-  .hw-table{ width:100%; font-family:var(--font-mono); font-size:12.5px; border-collapse:collapse;}
+  .hw-table{ width:100%; font-family:var(--font-mono); font-size:12.5px; border-collapse:collapse; padding-bottom:26px;}
+  .demo-tabpane > .hw-table:first-child{ padding-top:14px;}
   .hw-table th{ text-align:left; font-size:9px; letter-spacing:0.07em; text-transform:uppercase; color:var(--ink-muted); font-weight:400; padding:14px 32px; border-bottom:1px solid var(--border);}
   .hw-table td{ padding:15px 32px; border-bottom:1px solid var(--border); color:var(--ink-secondary);}
   .hw-table tr:last-child td{ border-bottom:none;}
