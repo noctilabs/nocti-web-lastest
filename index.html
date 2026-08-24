@@ -185,9 +185,8 @@
   .demo-panel{ border:1px solid var(--border); border-radius:0 0 12px 12px; background:#fff; overflow:hidden;}
   .demo-tabpane{ display:none;}
   .demo-tabpane.on{ display:block;}
-  .demo-cells{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-top:none;}
+  .demo-cells{ margin-top:24px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden;}
   .demo-cells.four{ grid-template-columns:repeat(4,1fr);}
-  .demo-cells.standalone{ margin-top:24px; border-top:1px solid var(--border); border-radius:12px; overflow:hidden;}
   .demo-cells .cell{ background:#fff; padding:20px 22px;}
   .demo-cells .cell .ct{ font-family:var(--font-mono); font-size:12px; color:var(--ink); letter-spacing:0.03em; margin-bottom:7px; display:flex; align-items:center; gap:8px;}
   .demo-cells .cell .ct::before{ content:"›"; color:var(--ink-muted);}
@@ -507,7 +506,7 @@
         <div class="hw-bub q" data-i18n="hw-chat-q2">Every client, or just some?</div>
         <div class="hw-bub typing" id="hw-typing" data-i18n="hw-typing-1">writing to context layer…</div>
       </div>
-      <div class="demo-cells standalone">
+      <div class="demo-cells">
         <div class="cell"><div class="ct" data-i18n="hw-1-cell1-title">Every team</div><div class="cd" data-i18n="hw-1-cell1-desc">Interviewed in parallel, not one meeting at a time.</div></div>
         <div class="cell"><div class="ct" data-i18n="hw-1-cell2-title">Autonomous</div><div class="cd" data-i18n="hw-1-cell2-desc">The agent runs the interview. No scribes.</div></div>
         <div class="cell"><div class="ct" data-i18n="hw-1-cell3-title">Structured</div><div class="cd" data-i18n="hw-1-cell3-desc">Output is machine-readable from the start.</div></div>
@@ -547,7 +546,7 @@
           </div>
         </div>
       </div>
-      <div class="demo-cells standalone">
+      <div class="demo-cells">
         <div class="cell"><div class="ct" data-i18n="hw-2-cell1-title">Structured</div><div class="cd" data-i18n="hw-2-cell1-desc">Machine-readable, not a wiki nobody opens.</div></div>
         <div class="cell"><div class="ct" data-i18n="hw-2-cell2-title">Self-correcting</div><div class="cd" data-i18n="hw-2-cell2-desc">Every live exception updates it automatically.</div></div>
         <div class="cell"><div class="ct" data-i18n="hw-2-cell3-title">Nobody maintains it</div><div class="cd" data-i18n="hw-2-cell3-desc">It stays current on its own as agents work.</div></div>
