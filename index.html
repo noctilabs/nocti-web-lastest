@@ -55,9 +55,6 @@
   :focus-visible{ outline:2px solid var(--brand-blue); outline-offset:3px;}
   .hero :focus-visible,.footer-rich :focus-visible{ outline-color:#f7f8ff;}
 
-  .badge{ display:inline-flex; align-items:center; gap:8px; border:1px solid var(--border-strong); border-radius:999px; padding:6px 14px; font-family:var(--font-mono); font-size:12px; color:var(--ink-secondary);}
-  .badge .ping{ width:6px; height:6px; border-radius:50%; background:var(--ink);}
-
   .btn{ font-family:var(--font-body); font-weight:600; font-size:14px; padding:11px 22px; border-radius:999px; display:inline-flex; align-items:center; gap:8px; transition:transform var(--duration-fast) var(--ease-out), opacity var(--duration-fast) ease, background-color var(--duration-fast) ease, border-color var(--duration-fast) ease, color var(--duration-fast) ease;}
   .btn-primary{ background:var(--btn-bg); color:var(--btn-fg);}
   .btn-outline{ border:1px solid var(--border-strong); color:var(--ink);}
@@ -122,13 +119,10 @@
     .hero{ min-height:calc(100vh / 0.87); min-height:calc(100svh / 0.87);}
   }
   .hero-inner{ position:relative; z-index:2; flex-shrink:0;}
-  .hero h1{ color:#f7f8ff;}
-  .hero h1{ margin-top:26px; font-size:clamp(38px,5.6vw,68px); max-width:15ch; margin-left:auto; margin-right:auto;}
+  .hero h1{ color:#f7f8ff; font-size:clamp(38px,5.6vw,68px); max-width:15ch; margin-left:auto; margin-right:auto;}
   .hero-sub{ margin-top:22px; font-size:17.5px; color:rgba(247,248,255,.78); max-width:50ch; margin-left:auto; margin-right:auto;}
   .hero-cta{ margin-top:32px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center;}
   .hero-neg{ margin-top:16px; font-family:var(--font-mono); font-size:12px; color:rgba(247,248,255,.65);}
-  .hero .badge{ color:#f7f8ff; border-color:rgba(247,248,255,.32); background:rgba(8,10,55,.22);}
-  .hero .badge .ping{ background:#f7f8ff;}
   .hero .btn-primary{ background:#f7f8ff; color:#080a32;}
   .hero .btn-outline{ color:#f7f8ff; border-color:rgba(247,248,255,.5); background:rgba(8,10,55,.16);}
 
@@ -388,8 +382,7 @@
   </div>
   <div class="wrap hero-inner">
     <div class="hero-copy">
-      <span class="badge"><span class="ping"></span> <span data-i18n="hero-badge">Every deployment starts with the audit</span></span>
-      <h1 data-i18n="hero-h1">Company memory that works.</h1>
+      <h1 data-i18n="hero-h1">Applied AI for real operations</h1>
       <p class="hero-sub" data-i18n="hero-sub">NoctiLabs turns how your operation runs into AI agents that run it: live, every day.</p>
       <p class="hero-neg" data-i18n="hero-neg">No migrations. No 18-month roadmaps.</p>
       <div class="hero-cta">
@@ -1013,8 +1006,7 @@
     "nav-company": "Empresa",
     "nav-blog": "Blog",
     "book-a-call": "Agendar Una Llamada →",
-    "hero-badge": "Cada despliegue empieza con la auditoría",
-    "hero-h1": "Memoria empresarial que funciona.",
+    "hero-h1": "IA aplicada a tu operación real",
     "hero-sub": "NoctiLabs convierte la forma en que funciona tu operación en agentes de IA que la ejecutan: en vivo, todos los días.",
     "hero-neg": "Sin migraciones. Sin roadmaps de 18 meses.",
     "trust-built": "Construido sobre:",
