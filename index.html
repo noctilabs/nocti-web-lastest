@@ -116,6 +116,11 @@
   @media (min-width:900px){
     .hero-inner{ padding-top:40px;}
   }
+  /* zoom:0.87 (below) shrinks the rendered result without changing what 100vh equals,
+     so vh-based sizing needs to be scaled back up to still fill the real viewport */
+  @media (min-width:901px){
+    .hero{ min-height:calc(100vh / 0.87); min-height:calc(100svh / 0.87);}
+  }
   .hero-inner{ position:relative; z-index:2; flex-shrink:0;}
   .hero h1{ color:#f7f8ff;}
   .hero h1{ margin-top:26px; font-size:clamp(38px,5.6vw,68px); max-width:15ch; margin-left:auto; margin-right:auto;}
