@@ -75,7 +75,7 @@
     box-shadow:0 8px 24px rgba(0,0,0,0.06);
   }
   .nav-brand{ display:flex; align-items:center; gap:9px; font-weight:700; font-size:14.5px; letter-spacing:-0.01em;}
-  .nav-links{ display:flex; gap:26px; font-size:12.5px; letter-spacing:0.03em; color:var(--ink-secondary);}
+  .nav-links{ display:flex; gap:26px; font-size:12.5px; letter-spacing:0.03em; text-transform:uppercase; color:var(--ink-secondary);}
   .nav-links a{ text-align:center;}
   .nav .btn-primary{ padding:9px 18px; font-size:13px; justify-content:center;}
   .lang-toggle{ font-family:var(--font-mono); font-size:12px; font-weight:600; letter-spacing:0.04em; border:1px solid var(--border-strong); background:transparent; color:var(--ink); border-radius:999px; padding:7px 14px; cursor:pointer; transition:transform var(--duration-fast) var(--ease-out), border-color var(--duration-fast) ease, background-color var(--duration-fast) ease;}
@@ -339,8 +339,8 @@
   <div class="nav">
     <div class="nav-brand">NoctiLabs</div>
     <div class="nav-links">
-      <a href="#how" data-i18n="nav-how">How It Works</a>
-      <a href="#automate" data-i18n="nav-automate">What We Automate</a>
+      <a href="#how" data-i18n="nav-platform">Platform</a>
+      <a href="#automate" data-i18n="nav-usecases">Use Cases</a>
       <a href="/company" data-i18n="nav-company">Company</a>
       <a href="/blog" data-i18n="nav-blog">Blog</a>
     </div>
@@ -352,8 +352,8 @@
   </div>
 </div>
 <nav class="nav-mobile-menu" id="nav-mobile-menu">
-  <a href="#how" data-i18n="nav-how">How It Works</a>
-  <a href="#automate" data-i18n="nav-automate">What We Automate</a>
+  <a href="#how" data-i18n="nav-platform">Platform</a>
+  <a href="#automate" data-i18n="nav-usecases">Use Cases</a>
   <a href="/company" data-i18n="nav-company">Company</a>
   <a href="/blog" data-i18n="nav-blog">Blog</a>
   <a href="/book-a-call" class="btn btn-primary" data-i18n="book-a-call">Book A Call →</a>
@@ -1003,6 +1003,8 @@
   var ES = {
     "nav-how": "Cómo Trabajamos",
     "nav-automate": "Qué Automatizamos",
+    "nav-platform": "Plataforma",
+    "nav-usecases": "Casos de Uso",
     "nav-company": "Empresa",
     "nav-blog": "Blog",
     "book-a-call": "Agendar Una Llamada →",
