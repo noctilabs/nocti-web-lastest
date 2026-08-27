@@ -1,7 +1,7 @@
 /* Shared nav bar component styles. Loaded by every page alongside nav.js.
    Single source of truth for nav markup/behavior — do not fork per page. */
 .nav-outer{ position:fixed; top:0; left:0; right:0; z-index:50; display:flex; justify-content:center; padding:18px 0;}
-.nav{ display:flex; align-items:center; gap:36px; background:var(--nav-bg); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border:1px solid var(--border); padding:10px 12px 10px 22px; border-radius:999px; box-shadow:0 8px 24px rgba(0,0,0,0.06);}
+.nav{ display:flex; align-items:center; gap:36px; background:var(--nav-bg); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); will-change:backdrop-filter; border:1px solid var(--border); padding:10px 12px 10px 22px; border-radius:999px; box-shadow:0 8px 24px rgba(0,0,0,0.06);}
 .nav-brand{ display:flex; align-items:center; gap:9px; font-weight:700; font-size:14.5px; letter-spacing:-0.01em;}
 .nav-links{ display:flex; gap:26px; font-size:12.5px; letter-spacing:0.03em; text-transform:uppercase; color:var(--ink-secondary);}
 .nav-links a{ text-align:center;}
