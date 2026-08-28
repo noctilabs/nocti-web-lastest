@@ -76,7 +76,8 @@
   .pf-title{ margin-top:20px; font-size:52px; line-height:1.02; max-width:20ch; letter-spacing:-0.02em; color:var(--ink);}
   .pf-intro{ margin-top:18px; font-size:20px; line-height:1.45; color:var(--ink-secondary); max-width:52ch;}
   .pf-visual{ margin-top:32px; border-radius:24px; padding:clamp(14px,2.4vw,34px); background-image:url("/assets/platform/gradient-frame.png"); background-size:cover; background-position:center;}
-  .pf-visual img{ display:block; width:100%; height:auto; border-radius:12px; box-shadow:0 20px 50px rgba(0,0,0,0.14);}
+  .pf-crop{ position:relative; overflow:hidden; width:100%; border-radius:12px; box-shadow:0 20px 50px rgba(0,0,0,0.14);}
+  .pf-crop img{ position:absolute; display:block; max-width:none;}
   @media (max-width:900px){ .pf-title{ font-size:clamp(30px,6vw,52px);} .pf-intro{ font-size:17px;} }
   @media (max-width:700px){ .pf-stage{ padding-top:40px;} .pf-visual{ margin-top:24px;} }
 
@@ -131,7 +132,9 @@
       <h2 class="pf-title" data-i18n="pf-title-1">An agent that interviews your whole company</h2>
       <p class="pf-intro" data-i18n="pf-intro-1">It talks to every team in parallel and surfaces how the work actually runs: the exceptions, the workarounds, the rules nobody wrote down. No forms, no consultants with clipboards.</p>
       <div class="pf-visual">
-        <img src="/assets/platform/screenshot-audit.png" alt="The Interviewer agent chat interface, showing a conversation about order exceptions with a team member" loading="lazy">
+        <div class="pf-crop" style="aspect-ratio:1172/514;">
+          <img src="/assets/platform/screenshot-audit.png" alt="The Interviewer agent chat interface, showing a conversation about order exceptions with a team member" loading="lazy" style="width:143.61%; height:207.35%; left:-21.81%; top:-73.24%;">
+        </div>
       </div>
     </div>
 
@@ -140,7 +143,9 @@
       <h2 class="pf-title" data-i18n="pf-title-2">The context layer your agents run on</h2>
       <p class="pf-intro" data-i18n="pf-intro-2">Everything the Interviewer extracts becomes your context layer: how your company actually runs, structured and machine-readable. It's what every agent runs on, and it sharpens on its own as they work.</p>
       <div class="pf-visual">
-        <img src="/assets/platform/screenshot-context.png" alt="Diagram of the context layer structuring rules and exceptions extracted from interviews into a machine-readable format" loading="lazy">
+        <div class="pf-crop" style="aspect-ratio:1176/556;">
+          <img src="/assets/platform/screenshot-context.png" alt="Diagram of the context layer structuring rules and exceptions extracted from interviews into a machine-readable format" loading="lazy" style="width:142.17%; height:163.88%; left:-21.91%; top:-53.91%;">
+        </div>
       </div>
     </div>
 
@@ -149,7 +154,9 @@
       <h2 class="pf-title" data-i18n="pf-title-3">Agents go live in your real workflows</h2>
       <p class="pf-intro" data-i18n="pf-intro-3">We architect the agent system against your context layer and ship it into the workflows you already run, on the stack you already use. Working agents from day one, not a pilot in a sandbox.</p>
       <div class="pf-visual">
-        <img src="/assets/platform/screenshot-deploy.png" alt="Deployment timeline showing an agent system shipped in phases into existing workflows" loading="lazy">
+        <div class="pf-crop" style="aspect-ratio:1098/411;">
+          <img src="/assets/platform/screenshot-deploy.png" alt="Deployment timeline showing an agent system shipped in phases into existing workflows" loading="lazy" style="width:102.01%; height:147.04%; left:0%; top:-41.38%;">
+        </div>
       </div>
     </div>
 
@@ -158,7 +165,9 @@
       <h2 class="pf-title" data-i18n="pf-title-4">One panel over every agent</h2>
       <p class="pf-intro" data-i18n="pf-intro-4">Everything you deployed, in one place. What each agent is saving, what it's doing right now, and where it needs your call, department by department.</p>
       <div class="pf-visual">
-        <img src="/assets/platform/screenshot-control.png" alt="Control panel dashboard showing savings, agent status, and department-by-department activity" loading="lazy">
+        <div class="pf-crop" style="aspect-ratio:1095/543;">
+          <img src="/assets/platform/screenshot-control.png" alt="Control panel dashboard showing savings, agent status, and department-by-department activity" loading="lazy" style="width:138.64%; height:163.66%; left:-22.49%; top:-50.38%;">
+        </div>
       </div>
     </div>
 
