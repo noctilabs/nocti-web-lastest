@@ -147,7 +147,6 @@
 
   /* shared demo tab bar — used by automate + how-we-do-it deploy/control panels */
   .demo-tabs{ display:flex; flex-wrap:wrap; border:1px solid var(--border); border-bottom:none; border-radius:12px 12px 0 0; background:var(--bg-subtle);}
-  .hw-shead + .demo-tabs{ margin-top:28px;}
   .demo-tab{ font-family:var(--font-mono); font-size:12px; letter-spacing:0.03em; padding:13px 20px; border:none; border-right:1px solid var(--border); cursor:pointer; background:transparent; color:var(--ink-muted);}
   .demo-tab:last-child{ border-right:none;}
   .demo-tab.on{ background:#fff; color:var(--ink); box-shadow:inset 0 -2px 0 var(--ink);}
@@ -190,7 +189,8 @@
   .hw-sintro{ font-size:15.5px; color:var(--ink-secondary); line-height:1.6;}
   @media (max-width:900px){ .hw-shead{ grid-template-columns:1fr; gap:14px; align-items:start;} }
 
-  .hw-chat{ position:relative; border:1px solid var(--border); border-radius:12px; background:var(--bg-subtle); overflow:hidden; padding:36px 40px; display:flex; flex-direction:column; gap:12px; margin-top:28px;}
+  .hw-visual-frame{ margin-top:28px; padding:clamp(14px,2.4vw,34px); border-radius:20px; background-image:url("/assets/hw/gradient-frame.png"); background-size:cover; background-position:center;}
+  .hw-chat{ position:relative; border:1px solid var(--border); border-radius:12px; background:var(--bg-subtle); overflow:hidden; padding:36px 40px; display:flex; flex-direction:column; gap:12px;}
   .hw-chat .hint{ position:absolute; top:16px; right:20px; font-family:var(--font-mono); font-size:10px; color:var(--ink-muted); border:1px solid var(--border-strong); padding:5px 10px; background:#fff; border-radius:6px;}
   .hw-who{ font-family:var(--font-mono); font-size:10px; letter-spacing:0.06em; color:var(--ink-muted); text-transform:uppercase;}
   .hw-bub{ font-size:14px; line-height:1.4; padding:11px 15px; max-width:62%; border-radius:8px;}
@@ -199,7 +199,7 @@
   .hw-bub.typing{ align-self:flex-start; color:var(--ink-muted); font-family:var(--font-mono); font-size:12px; border:1px dashed var(--border-strong); background:#fff;}
   @media (max-width:700px){ .hw-bub{ max-width:85%;} .hw-chat{ padding:24px 20px;} }
 
-  .hw-flowmix{ display:grid; grid-template-columns:1.2fr 56px 90px 56px 1fr; gap:20px; align-items:stretch; border:1px solid var(--border); border-radius:12px; background:var(--bg-subtle); padding:32px; margin-top:28px;}
+  .hw-flowmix{ display:grid; grid-template-columns:1.2fr 56px 90px 56px 1fr; gap:20px; align-items:stretch; border:1px solid var(--border); border-radius:12px; background:var(--bg-subtle); padding:32px;}
   .hw-flowcol{ display:flex; flex-direction:column; min-height:0;}
   .hw-flowcol .fsh{ font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:14px;}
   .hw-flowcol .graphbox{ flex:1; display:flex; align-items:center; justify-content:center; min-height:220px;}
@@ -441,20 +441,22 @@
         </div>
         <p class="hw-sintro" data-i18n="hw-intro-1">It talks to every team in parallel and surfaces how the work actually runs: the exceptions, the workarounds, the rules nobody wrote down. No forms, no consultants with clipboards.</p>
       </header>
-      <div class="hw-chat">
-        <span class="hint" data-i18n="hw-demo-video">▶ demo video</span>
-        <span class="hw-who" data-i18n="hw-interviewer">The Interviewer</span>
-        <div class="hw-bub q" data-i18n="hw-chat-q1">When an order comes in wrong, what do you actually do?</div>
-        <span class="hw-who" style="align-self:flex-end" data-i18n="hw-chat-who2">Marta · Accounts</span>
-        <div class="hw-bub a" data-i18n="hw-chat-a1">I check the ERP. The CRM is usually wrong on dates.</div>
-        <span class="hw-who" data-i18n="hw-interviewer">The Interviewer</span>
-        <div class="hw-bub q" data-i18n="hw-chat-q2">Every client, or just some?</div>
-        <div class="hw-bub typing" id="hw-typing" data-i18n="hw-typing-1">writing to context layer…</div>
-      </div>
-      <div class="demo-cells">
-        <div class="cell"><div class="ct" data-i18n="hw-1-cell1-title">Every team</div><div class="cd" data-i18n="hw-1-cell1-desc">Interviewed in parallel, not one meeting at a time.</div></div>
-        <div class="cell"><div class="ct" data-i18n="hw-1-cell2-title">Autonomous</div><div class="cd" data-i18n="hw-1-cell2-desc">The agent runs the interview. No scribes.</div></div>
-        <div class="cell"><div class="ct" data-i18n="hw-1-cell3-title">Structured</div><div class="cd" data-i18n="hw-1-cell3-desc">Output is machine-readable from the start.</div></div>
+      <div class="hw-visual-frame">
+        <div class="hw-chat">
+          <span class="hint" data-i18n="hw-demo-video">▶ demo video</span>
+          <span class="hw-who" data-i18n="hw-interviewer">The Interviewer</span>
+          <div class="hw-bub q" data-i18n="hw-chat-q1">When an order comes in wrong, what do you actually do?</div>
+          <span class="hw-who" style="align-self:flex-end" data-i18n="hw-chat-who2">Marta · Accounts</span>
+          <div class="hw-bub a" data-i18n="hw-chat-a1">I check the ERP. The CRM is usually wrong on dates.</div>
+          <span class="hw-who" data-i18n="hw-interviewer">The Interviewer</span>
+          <div class="hw-bub q" data-i18n="hw-chat-q2">Every client, or just some?</div>
+          <div class="hw-bub typing" id="hw-typing" data-i18n="hw-typing-1">writing to context layer…</div>
+        </div>
+        <div class="demo-cells">
+          <div class="cell"><div class="ct" data-i18n="hw-1-cell1-title">Every team</div><div class="cd" data-i18n="hw-1-cell1-desc">Interviewed in parallel, not one meeting at a time.</div></div>
+          <div class="cell"><div class="ct" data-i18n="hw-1-cell2-title">Autonomous</div><div class="cd" data-i18n="hw-1-cell2-desc">The agent runs the interview. No scribes.</div></div>
+          <div class="cell"><div class="ct" data-i18n="hw-1-cell3-title">Structured</div><div class="cd" data-i18n="hw-1-cell3-desc">Output is machine-readable from the start.</div></div>
+        </div>
       </div>
     </div>
 
@@ -466,35 +468,37 @@
         </div>
         <p class="hw-sintro" data-i18n="hw-intro-2">Everything the Interviewer extracts becomes your context layer: how your company actually runs, structured and machine-readable. It's what every agent runs on, and it sharpens on its own as they work.</p>
       </header>
-      <div class="hw-flowmix">
-        <div class="hw-flowcol">
-          <div class="fsh" data-i18n="hw-flow-sources">Sources · how work really runs</div>
-          <div class="graphbox"><svg viewBox="0 0 300 240" id="hwSynapse" style="width:100%;height:100%;max-height:100%" preserveAspectRatio="xMidYMid meet"></svg></div>
-        </div>
-        <div class="hw-farrow">
-          <svg viewBox="0 0 60 20" width="60" height="20"><line x1="0" y1="10" x2="52" y2="10" stroke="#16a34a" stroke-width="1.5"/><polygon points="52,5 60,10 52,15" fill="#16a34a"/><circle r="2.5" fill="#16a34a" cx="0" cy="10"><animate attributeName="cx" values="0;52" dur="1.4s" repeatCount="indefinite"/></circle></svg>
-        </div>
-        <div class="hw-fmid">
-          <div class="hw-fcore" data-i18n="hw-context-core">CONTEXT</div>
-          <div class="hw-fcorelbl" data-i18n="hw-structuring">structuring</div>
-        </div>
-        <div class="hw-farrow">
-          <svg viewBox="0 0 60 20" width="60" height="20"><line x1="0" y1="10" x2="52" y2="10" stroke="#16a34a" stroke-width="1.5"/><polygon points="52,5 60,10 52,15" fill="#16a34a"/><circle r="2.5" fill="#16a34a" cx="0" cy="10"><animate attributeName="cx" values="0;52" dur="1.4s" begin="0.5s" repeatCount="indefinite"/></circle></svg>
-        </div>
-        <div class="hw-flowcol">
-          <div class="fsh" data-i18n="hw-flow-layer">Context layer · machine-readable</div>
-          <div class="rules">
-            <div class="hw-fitem"><span>source_of_truth</span><span class="v">→ ERP</span></div>
-            <div class="hw-fitem"><span>client #402</span><span class="v" data-i18n="hw-rule-2-v">→ manual review</span></div>
-            <div class="hw-fitem"><span>approval &gt; $10k</span><span class="v" data-i18n="hw-rule-3-v">→ finance lead</span></div>
-            <div class="hw-fitem"><span data-i18n="hw-rule-4-k">malformed input</span><span class="v" data-i18n="hw-rule-4-v">→ flag + hold</span></div>
+      <div class="hw-visual-frame">
+        <div class="hw-flowmix">
+          <div class="hw-flowcol">
+            <div class="fsh" data-i18n="hw-flow-sources">Sources · how work really runs</div>
+            <div class="graphbox"><svg viewBox="0 0 300 240" id="hwSynapse" style="width:100%;height:100%;max-height:100%" preserveAspectRatio="xMidYMid meet"></svg></div>
+          </div>
+          <div class="hw-farrow">
+            <svg viewBox="0 0 60 20" width="60" height="20"><line x1="0" y1="10" x2="52" y2="10" stroke="#16a34a" stroke-width="1.5"/><polygon points="52,5 60,10 52,15" fill="#16a34a"/><circle r="2.5" fill="#16a34a" cx="0" cy="10"><animate attributeName="cx" values="0;52" dur="1.4s" repeatCount="indefinite"/></circle></svg>
+          </div>
+          <div class="hw-fmid">
+            <div class="hw-fcore" data-i18n="hw-context-core">CONTEXT</div>
+            <div class="hw-fcorelbl" data-i18n="hw-structuring">structuring</div>
+          </div>
+          <div class="hw-farrow">
+            <svg viewBox="0 0 60 20" width="60" height="20"><line x1="0" y1="10" x2="52" y2="10" stroke="#16a34a" stroke-width="1.5"/><polygon points="52,5 60,10 52,15" fill="#16a34a"/><circle r="2.5" fill="#16a34a" cx="0" cy="10"><animate attributeName="cx" values="0;52" dur="1.4s" begin="0.5s" repeatCount="indefinite"/></circle></svg>
+          </div>
+          <div class="hw-flowcol">
+            <div class="fsh" data-i18n="hw-flow-layer">Context layer · machine-readable</div>
+            <div class="rules">
+              <div class="hw-fitem"><span>source_of_truth</span><span class="v">→ ERP</span></div>
+              <div class="hw-fitem"><span>client #402</span><span class="v" data-i18n="hw-rule-2-v">→ manual review</span></div>
+              <div class="hw-fitem"><span>approval &gt; $10k</span><span class="v" data-i18n="hw-rule-3-v">→ finance lead</span></div>
+              <div class="hw-fitem"><span data-i18n="hw-rule-4-k">malformed input</span><span class="v" data-i18n="hw-rule-4-v">→ flag + hold</span></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="demo-cells">
-        <div class="cell"><div class="ct" data-i18n="hw-2-cell1-title">Structured</div><div class="cd" data-i18n="hw-2-cell1-desc">Machine-readable, not a wiki nobody opens.</div></div>
-        <div class="cell"><div class="ct" data-i18n="hw-2-cell2-title">Self-correcting</div><div class="cd" data-i18n="hw-2-cell2-desc">Every live exception updates it automatically.</div></div>
-        <div class="cell"><div class="ct" data-i18n="hw-2-cell3-title">Nobody maintains it</div><div class="cd" data-i18n="hw-2-cell3-desc">It stays current on its own as agents work.</div></div>
+        <div class="demo-cells">
+          <div class="cell"><div class="ct" data-i18n="hw-2-cell1-title">Structured</div><div class="cd" data-i18n="hw-2-cell1-desc">Machine-readable, not a wiki nobody opens.</div></div>
+          <div class="cell"><div class="ct" data-i18n="hw-2-cell2-title">Self-correcting</div><div class="cd" data-i18n="hw-2-cell2-desc">Every live exception updates it automatically.</div></div>
+          <div class="cell"><div class="ct" data-i18n="hw-2-cell3-title">Nobody maintains it</div><div class="cd" data-i18n="hw-2-cell3-desc">It stays current on its own as agents work.</div></div>
+        </div>
       </div>
     </div>
 
@@ -506,6 +510,7 @@
         </div>
         <p class="hw-sintro" data-i18n="hw-intro-3">We architect the agent system against your context layer and ship it into the workflows you already run, on the stack you already use. Working agents from day one, not a pilot in a sandbox.</p>
       </header>
+      <div class="hw-visual-frame">
       <div class="demo-tabs" data-tabgroup="hwdeploy">
         <button class="demo-tab on" data-tab="hwd-roll" data-i18n="hw-tab-rollout">Controlled rollout</button>
         <button class="demo-tab" data-tab="hwd-any" data-i18n="hw-tab-anywhere">Deploy anywhere</button>
@@ -557,6 +562,7 @@
         <div class="cell"><div class="ct" data-i18n="hw-3-cell3-title">From day one</div><div class="cd" data-i18n="hw-3-cell3-desc">Working agents from the first deployment.</div></div>
         <div class="cell"><div class="ct" data-i18n="hw-3-cell4-title">Staged rollout</div><div class="cd" data-i18n="hw-3-cell4-desc">Live in phases, never one risky switch.</div></div>
       </div>
+      </div>
     </div>
 
     <div class="hw-stage" data-reveal>
@@ -567,6 +573,7 @@
         </div>
         <p class="hw-sintro" data-i18n="hw-intro-4">Everything you deployed, in one place. What each agent is saving, what it's doing right now, and where it needs your call, department by department.</p>
       </header>
+      <div class="hw-visual-frame">
       <div class="demo-tabs" data-tabgroup="hwctrl">
         <button class="demo-tab on" data-tab="hwc-save" data-i18n="hw-tab-savings">Savings</button>
         <button class="demo-tab" data-tab="hwc-ctrl" data-i18n="hw-tab-control">Control</button>
@@ -611,6 +618,7 @@
         <div class="cell"><div class="ct" data-i18n="hw-4-cell2-title">Savings measured</div><div class="cd" data-i18n="hw-4-cell2-desc">What each agent saves per month. The Medidor.</div></div>
         <div class="cell"><div class="ct" data-i18n="hw-4-cell3-title">Human-in-the-loop</div><div class="cd" data-i18n="hw-4-cell3-desc">Approvals exactly where you want them.</div></div>
         <div class="cell"><div class="ct" data-i18n="hw-4-cell4-title">Engineers on</div><div class="cd" data-i18n="hw-4-cell4-desc">We stay to sharpen and add new work.</div></div>
+      </div>
       </div>
     </div>
 
