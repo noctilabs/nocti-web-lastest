@@ -221,18 +221,10 @@
   .hw-sintro{ margin-top:24px; font-size:18px; color:var(--ink-secondary); line-height:1.55; max-width:720px;}
 
   .hw-visual-frame{ margin-top:28px; padding:clamp(14px,2.4vw,34px); border-radius:20px; background-image:url("/assets/hw/gradient-frame.png"); background-size:cover; background-position:center;}
-  .hw-visual-frame .hw-chat{ border-radius:16px 16px 0 0; border-bottom:none;}
   .hw-visual-frame .demo-tabs{ border-radius:16px 16px 0 0;}
   .hw-visual-frame .demo-panel{ border-radius:0; border-bottom:none;}
   .hw-visual-frame .demo-cells{ margin-top:0; border-radius:0 0 16px 16px;}
-  .hw-chat{ position:relative; border:1px solid var(--border); border-radius:12px; background:var(--bg-subtle); overflow:hidden; padding:36px 40px; display:flex; flex-direction:column; gap:12px;}
-  .hw-chat .hint{ position:absolute; top:16px; right:20px; font-family:var(--font-mono); font-size:10px; color:var(--ink-muted); border:1px solid var(--border-strong); padding:5px 10px; background:#fff; border-radius:6px;}
-  .hw-who{ font-family:var(--font-mono); font-size:10px; letter-spacing:0.06em; color:var(--ink-muted); text-transform:uppercase;}
-  .hw-bub{ font-size:14px; line-height:1.4; padding:11px 15px; max-width:62%; border-radius:8px;}
-  .hw-bub.q{ align-self:flex-start; background:var(--ink); color:#fff;}
-  .hw-bub.a{ align-self:flex-end; border:1px solid var(--border-strong); background:#fff;}
-  .hw-bub.typing{ align-self:flex-start; color:var(--ink-muted); font-family:var(--font-mono); font-size:12px; border:1px dashed var(--border-strong); background:#fff;}
-  @media (max-width:700px){ .hw-bub{ max-width:85%;} .hw-chat{ padding:24px 20px;} }
+  .hw-screenshot{ display:block; width:100%; height:auto; border-radius:16px;}
 
   .hw-flowmix{ display:grid; grid-template-columns:1.2fr 56px 90px 56px 1fr; gap:20px; align-items:stretch; border:1px solid var(--border); border-radius:12px; background:var(--bg-subtle); padding:32px;}
   .hw-flowcol{ display:flex; flex-direction:column; min-height:0;}
@@ -398,21 +390,7 @@
         <p class="hw-sintro" data-i18n="hw-intro-1">It talks to every team in parallel and surfaces how the work actually runs: the exceptions, the workarounds, the rules nobody wrote down. No forms, no consultants with clipboards.</p>
       </header>
       <div class="hw-visual-frame">
-        <div class="hw-chat">
-          <span class="hint" data-i18n="hw-demo-video">▶ demo video</span>
-          <span class="hw-who" data-i18n="hw-interviewer">The Interviewer</span>
-          <div class="hw-bub q" data-i18n="hw-chat-q1">When an order comes in wrong, what do you actually do?</div>
-          <span class="hw-who" style="align-self:flex-end" data-i18n="hw-chat-who2">Marta · Accounts</span>
-          <div class="hw-bub a" data-i18n="hw-chat-a1">I check the ERP. The CRM is usually wrong on dates.</div>
-          <span class="hw-who" data-i18n="hw-interviewer">The Interviewer</span>
-          <div class="hw-bub q" data-i18n="hw-chat-q2">Every client, or just some?</div>
-          <div class="hw-bub typing" id="hw-typing" data-i18n="hw-typing-1">writing to context layer…</div>
-        </div>
-        <div class="demo-cells">
-          <div class="cell"><div class="ct" data-i18n="hw-1-cell1-title">Every team</div><div class="cd" data-i18n="hw-1-cell1-desc">Interviewed in parallel, not one meeting at a time.</div></div>
-          <div class="cell"><div class="ct" data-i18n="hw-1-cell2-title">Autonomous</div><div class="cd" data-i18n="hw-1-cell2-desc">The agent runs the interview. No scribes.</div></div>
-          <div class="cell"><div class="ct" data-i18n="hw-1-cell3-title">Structured</div><div class="cd" data-i18n="hw-1-cell3-desc">Output is machine-readable from the start.</div></div>
-        </div>
+        <img class="hw-screenshot" src="/assets/hw/audit-screenshot.png" width="1550" height="680" alt="" loading="lazy">
       </div>
     </div>
 
@@ -707,23 +685,6 @@
   });
 })();
 
-/* stage 01 — rotating "typing" hint */
-(function(){
-  var el = document.getElementById('hw-typing');
-  if(!el) return;
-  var key = el.getAttribute('data-i18n');
-  var EN = ['writing to context layer…','mapping the exception…','next question…'];
-  var ES = ['escribiendo en la capa de contexto…','mapeando la excepción…','siguiente pregunta…'];
-  var i = 0;
-  setInterval(function(){
-    i = (i + 1) % EN.length;
-    var lang = document.documentElement.getAttribute('lang');
-    var list = lang === 'es' ? ES : EN;
-    el.textContent = list[i];
-    if(el.hasAttribute('data-en-cache')) el.setAttribute('data-en-cache', EN[i]);
-  }, 2200);
-})();
-
 /* stage 02 — animated synapse diagram (decorative, no text to translate) */
 (function(){
   var NS = 'http://www.w3.org/2000/svg';
@@ -803,19 +764,6 @@
     "hw-eyebrow-1": "01 . Auditoría",
     "hw-title-1": "Un agente que entrevista a toda tu empresa",
     "hw-intro-1": "Habla con cada equipo en paralelo y saca a la luz cómo funciona el trabajo en la realidad: las excepciones, las vueltas que se le dan, las reglas que nadie escribió. Sin formularios, sin consultores con carpeta.",
-    "hw-demo-video": "▶ ver demo",
-    "hw-interviewer": "El Entrevistador",
-    "hw-chat-q1": "Cuando llega un pedido mal, ¿qué hacés en la práctica?",
-    "hw-chat-who2": "Marta · Cuentas",
-    "hw-chat-a1": "Reviso el ERP. El CRM casi siempre tiene mal las fechas.",
-    "hw-chat-q2": "¿Con todos los clientes, o solo con algunos?",
-    "hw-typing-1": "escribiendo en la capa de contexto…",
-    "hw-1-cell1-title": "Todo el equipo",
-    "hw-1-cell1-desc": "Entrevistado en paralelo, no reunión por reunión.",
-    "hw-1-cell2-title": "Autónomo",
-    "hw-1-cell2-desc": "El agente conduce la entrevista. Sin nadie tomando notas.",
-    "hw-1-cell3-title": "Estructurado",
-    "hw-1-cell3-desc": "La salida es legible por máquina desde el primer momento.",
 
     "hw-eyebrow-3": "02 . Despliegue",
     "hw-title-3": "Los agentes salen en vivo en tus flujos reales",
