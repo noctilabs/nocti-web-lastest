@@ -136,6 +136,16 @@
   .punch{ font-weight:600; font-size:19px; margin-top:14px; line-height:1.5; letter-spacing:-0.01em;}
   @media (max-width:900px){ .manifesto-row{ grid-template-columns:1fr;} .manifesto-col:first-child{ border-right:none; border-bottom:1px solid var(--border);} }
   .gap-diagram{ margin-top:48px;}
+
+  .gov-row{ margin-top:40px; display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--border); border-radius:12px; overflow:hidden;}
+  .gov-col{ padding:32px 28px; border-left:1px solid var(--border);}
+  .gov-col:first-child{ border-left:none;}
+  .gov-icon{ display:block; margin-bottom:22px;}
+  .gov-col h3{ font-size:19px; font-weight:600; letter-spacing:-0.01em; line-height:1.3;}
+  .gov-col p{ margin-top:10px; font-size:15px; color:var(--ink-secondary); line-height:1.55;}
+  @media (max-width:900px){ .gov-row{ grid-template-columns:1fr;} .gov-col{ border-left:none; border-top:1px solid var(--border);} .gov-col:first-child{ border-top:none;} }
+  .gov-banner{ margin-top:48px; border-radius:28px; aspect-ratio:1355/514; background-image:url("/assets/hw/gradient-frame.png"); background-size:cover; background-position:center;}
+  @media (max-width:640px){ .gov-banner{ aspect-ratio:4/3;} }
   @media (max-width:700px){
     .gap-diagram-viewport{ display:none;}
   }
@@ -345,88 +355,6 @@
   </div>
 </div>
 
-<section class="block" data-reveal>
-  <div class="wrap">
-    <div class="manifesto-row">
-      <div class="manifesto-col">
-        <span class="eyebrow" data-i18n="manifesto-eyebrow-1">The production gap</span>
-        <h2 style="margin-top:14px; font-size:26px; min-height:64px;" data-i18n="manifesto-h2-1">AI doesn't fail on the model. It fails on the context.</h2>
-        <p class="punch" data-i18n="manifesto-p-1">Most AI never reaches production, and it's almost never the model. To run in your operation, AI has to know how it works: your permissions, your exceptions, the rules nobody wrote down. That lives in your team's heads, which is why the demo works and production doesn't.</p>
-      </div>
-      <div class="manifesto-col">
-        <span class="eyebrow" data-i18n="manifesto-eyebrow-2">The Fix</span>
-        <h2 style="margin-top:14px; font-size:26px; min-height:64px;" data-i18n="manifesto-h2-2">We extract how your operation runs</h2>
-        <p class="punch" style="margin-top:14px;" data-i18n="manifesto-p-2">We extract how your operation actually runs, and turn it into the memory your agents run on: live, every day, on the stack you already use.</p>
-      </div>
-    </div>
-
-    <div class="gap-diagram-viewport" role="region" aria-label="Scrollable production gap diagram" tabindex="0">
-    <svg class="gap-diagram" viewBox="0 0 1000 350" width="100%" xmlns="http://www.w3.org/2000/svg" role="img">
-      <title>The production gap, illustrated as two platforms joined by a bridge</title>
-
-      <polygon points="190,150 300,183 190,216 80,183" fill="none" stroke="var(--ink)" stroke-width="1"/>
-      <polygon points="190,182 300,215 190,248 80,215" fill="none" stroke="var(--ink)" stroke-width="1"/>
-      <line x1="80" y1="183" x2="80" y2="215" stroke="var(--ink)" stroke-width="1"/>
-      <line x1="300" y1="183" x2="300" y2="215" stroke="var(--ink)" stroke-width="1"/>
-      <line x1="190" y1="216" x2="190" y2="248" stroke="var(--ink)" stroke-width="1"/>
-      <circle class="gap-dot" style="animation-delay:0s" cx="150" cy="175" r="3.5" fill="var(--ink)" opacity="0.5"/>
-      <circle class="gap-dot" style="animation-delay:0.6s" cx="185" cy="163" r="2.5" fill="var(--ink)" opacity="0.35"/>
-      <circle class="gap-dot" style="animation-delay:1.2s" cx="220" cy="180" r="4.5" fill="var(--ink)" opacity="0.6"/>
-      <circle class="gap-dot" style="animation-delay:0.3s" cx="165" cy="192" r="2.5" fill="var(--ink)" opacity="0.3"/>
-      <circle class="gap-dot" style="animation-delay:0.9s" cx="205" cy="197" r="3.5" fill="var(--ink)" opacity="0.45"/>
-      <circle class="gap-dot" style="animation-delay:1.5s" cx="240" cy="172" r="2.5" fill="var(--ink)" opacity="0.3"/>
-      <text x="190" y="275" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="13" fill="var(--ink)">prototype</text>
-      <text x="190" y="293" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-muted)">works on your machine</text>
-
-      <polygon points="780,150 890,183 780,216 670,183" fill="none" stroke="var(--ink)" stroke-width="1"/>
-      <polygon points="780,182 890,215 780,248 670,215" fill="none" stroke="var(--ink)" stroke-width="1"/>
-      <line x1="670" y1="183" x2="670" y2="215" stroke="var(--ink)" stroke-width="1"/>
-      <line x1="890" y1="183" x2="890" y2="215" stroke="var(--ink)" stroke-width="1"/>
-      <line x1="780" y1="216" x2="780" y2="248" stroke="var(--ink)" stroke-width="1"/>
-      <circle class="gap-dot" style="animation-delay:0.4s" cx="765" cy="185" r="3.5" fill="var(--ink)" opacity="0.6"/>
-      <circle class="gap-dot" style="animation-delay:1.1s" cx="795" cy="196" r="2.5" fill="var(--ink)" opacity="0.4"/>
-      <circle class="gap-dot" style="animation-delay:0.7s" cx="810" cy="175" r="2" fill="var(--ink)" opacity="0.3"/>
-      <circle class="gap-dot" style="animation-delay:1.5s" cx="750" cy="205" r="2.5" fill="var(--ink)" opacity="0.35"/>
-      <circle class="gap-dot" style="animation-delay:0.2s" cx="830" cy="192" r="2" fill="var(--ink)" opacity="0.25"/>
-      <text x="780" y="275" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="600" font-size="13" fill="var(--ink)">production</text>
-      <text x="780" y="293" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-muted)">live alongside your team</text>
-
-      <path d="M300,168 C415,80 555,80 670,168" fill="none" stroke="var(--ink)" stroke-width="1.5"/>
-      <text x="485" y="88" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="700" font-size="13" fill="var(--ink)">NoctiLabs</text>
-
-      <circle cx="390" cy="119" r="3" fill="var(--ink)"/>
-      <line class="gap-dash" x1="390" y1="119" x2="390" y2="210" stroke="var(--border-strong)" stroke-width="0.75" stroke-dasharray="2 3"/>
-      <circle cx="485" cy="102" r="3" fill="var(--ink)"/>
-      <line class="gap-dash" x1="485" y1="102" x2="485" y2="210" stroke="var(--border-strong)" stroke-width="0.75" stroke-dasharray="2 3"/>
-      <circle cx="580" cy="119" r="3" fill="var(--ink)"/>
-      <line class="gap-dash" x1="580" y1="119" x2="580" y2="210" stroke="var(--border-strong)" stroke-width="0.75" stroke-dasharray="2 3"/>
-
-      <line class="gap-dash" x1="330" y1="210" x2="640" y2="210" stroke="var(--ink-muted)" stroke-width="0.75" stroke-dasharray="4 4"/>
-      <line x1="330" y1="203" x2="330" y2="217" stroke="var(--ink-muted)" stroke-width="0.75"/>
-      <line x1="640" y1="203" x2="640" y2="217" stroke="var(--ink-muted)" stroke-width="0.75"/>
-      <text x="485" y="234" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--ink-muted)">production gap</text>
-
-      <circle class="gap-dot" style="animation-delay:0.2s" cx="110" cy="300" r="2" fill="var(--ink)" opacity="0.25"/>
-      <circle class="gap-dot" style="animation-delay:0.8s" cx="230" cy="320" r="3" fill="var(--ink)" opacity="0.35"/>
-      <circle class="gap-dot" style="animation-delay:1.4s" cx="330" cy="295" r="2" fill="var(--ink)" opacity="0.2"/>
-      <circle class="gap-dot" style="animation-delay:0.5s" cx="420" cy="325" r="2.5" fill="var(--ink)" opacity="0.3"/>
-      <circle class="gap-dot" style="animation-delay:1.1s" cx="560" cy="295" r="2" fill="var(--ink)" opacity="0.2"/>
-      <circle class="gap-dot" style="animation-delay:0.1s" cx="660" cy="322" r="3" fill="var(--ink)" opacity="0.35"/>
-      <circle class="gap-dot" style="animation-delay:0.7s" cx="760" cy="298" r="2" fill="var(--ink)" opacity="0.25"/>
-      <circle class="gap-dot" style="animation-delay:1.3s" cx="870" cy="318" r="2.5" fill="var(--ink)" opacity="0.3"/>
-      <circle class="gap-dot" style="animation-delay:0.3s" cx="55" cy="315" r="1.8" fill="var(--ink)" opacity="0.2"/>
-      <circle class="gap-dot" style="animation-delay:0.9s" cx="945" cy="308" r="2.2" fill="var(--ink)" opacity="0.28"/>
-      <circle class="gap-dot" style="animation-delay:0.6s" cx="500" cy="330" r="2" fill="var(--ink)" opacity="0.22"/>
-      <circle class="gap-dot" style="animation-delay:1.2s" cx="140" cy="335" r="1.6" fill="var(--ink)" opacity="0.18"/>
-      <circle class="gap-dot" style="animation-delay:0.4s" cx="700" cy="332" r="2" fill="var(--ink)" opacity="0.25"/>
-      <circle class="gap-dot" style="animation-delay:1s" cx="50" cy="268" r="1.5" fill="var(--ink)" opacity="0.15"/>
-      <circle class="gap-dot" style="animation-delay:0s" cx="925" cy="268" r="1.5" fill="var(--ink)" opacity="0.15"/>
-      <circle class="gap-dot" style="animation-delay:1.6s" cx="480" cy="268" r="2" fill="var(--ink)" opacity="0.2"/>
-    </svg>
-    </div>
-  </div>
-</section>
-
 <section class="block gray" id="how">
   <div class="wrap">
     <div data-reveal>
@@ -632,110 +560,43 @@
 <section class="block" id="automate">
   <div class="wrap">
     <div data-reveal>
-      <span class="eyebrow" data-i18n="nav-automate">What we automate</span>
-      <h2 style="margin-top:14px;" data-i18n="automate-h2">Entire workflows, not isolated tasks.</h2>
-      <p class="block-lede" data-i18n="automate-lede">We don't automate a task and call it transformation. We map how a full workflow actually runs, then build the agents that run it, end to end, on the systems you already use.</p>
+      <span class="eyebrow" data-i18n="governance-eyebrow">Governance</span>
+      <h2 style="margin-top:14px;" data-i18n="governance-h2">A governable system</h2>
+      <p class="block-lede" data-i18n="governance-lede">Built for companies that have to answer for what their AI does.</p>
     </div>
-    <div class="wa-panel" data-reveal>
-      <div class="demo-tabs" data-tabgroup="wa">
-        <button class="demo-tab on" data-tab="wa-ops" data-i18n="ops-title">Operations</button>
-        <button class="demo-tab" data-tab="wa-sales" data-i18n="sales-title">Sales</button>
-        <button class="demo-tab" data-tab="wa-fin" data-i18n="finance-title">Finance</button>
-        <button class="demo-tab" data-tab="wa-beyond" data-i18n="beyond-title">&amp; Beyond</button>
+    <div class="gov-row" data-reveal>
+      <div class="gov-col">
+        <svg class="gov-icon" width="44" height="35" viewBox="0 0 41.3 32.45" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0 4.425H41.3" stroke="var(--ink)" stroke-width="1.25"/>
+          <path d="M0 16.225H41.3" stroke="var(--ink)" stroke-width="1.25"/>
+          <path d="M0 28.025H41.3" stroke="var(--ink)" stroke-width="1.25"/>
+          <circle cx="10.325" cy="4.425" r="4.425" fill="var(--bg)" stroke="var(--ink)" stroke-width="1.25"/>
+          <circle cx="26.55" cy="16.225" r="4.425" fill="var(--bg)" stroke="var(--ink)" stroke-width="1.25"/>
+          <circle cx="17.7" cy="28.025" r="4.425" fill="var(--bg)" stroke="var(--ink)" stroke-width="1.25"/>
+        </svg>
+        <h3 data-i18n="governance-1-title">Full traceability</h3>
+        <p data-i18n="governance-1-desc">Every run logs what it did, with what data, what escalated, and who approved it.</p>
       </div>
-      <div class="demo-panel">
-
-        <div class="demo-tabpane on" data-pane="wa-ops">
-          <p class="wa-flow-label"><span data-i18n="automate-flow-label">One workflow, end to end</span> · <strong data-i18n="automate-ops-flow">order exception → resolved &amp; shipped</strong></p>
-          <div class="wa-steps">
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-ops-s1-title">Intake</h4><p data-i18n="automate-ops-s1-desc">Reads the order from email or portal and normalizes it.</p></div>
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-ops-s2-title">Validate</h4><p data-i18n="automate-ops-s2-desc">Checks it against the ERP, catches the date and price mismatches.</p></div>
-            <div class="wa-step"><span class="role you"><span class="dot"></span><span data-i18n="role-you">You</span></span><h4 data-i18n="automate-ops-s3-title">Approval</h4><p data-i18n="automate-ops-s3-desc">Only the exceptions your rules say a human must sign.</p></div>
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-ops-s4-title">Cross-system entry</h4><p data-i18n="automate-ops-s4-desc">Writes to every system that needs it, no double entry.</p></div>
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-ops-s5-title">Close the loop</h4><p data-i18n="automate-ops-s5-desc">Notifies the owner and logs what it decided and why.</p></div>
-          </div>
-          <div class="wa-absorbs">
-            <span class="wa-absorbs-label" data-i18n="automate-absorbs-label">Work it absorbs</span>
-            <div class="wa-tags">
-              <span class="wa-tag" data-i18n="automate-ops-tag1">report assembly</span>
-              <span class="wa-tag" data-i18n="automate-ops-tag2">approval routing</span>
-              <span class="wa-tag" data-i18n="automate-ops-tag3">exception handling</span>
-              <span class="wa-tag" data-i18n="automate-ops-tag4">cross-system data entry</span>
-            </div>
-            <span class="wa-cta-tag" data-i18n="ops-result">→ Ships without the backlog</span>
-          </div>
-        </div>
-
-        <div class="demo-tabpane" data-pane="wa-sales">
-          <p class="wa-flow-label"><span data-i18n="automate-flow-label">One workflow, end to end</span> · <strong data-i18n="automate-sales-flow">inbound request → order in the system</strong></p>
-          <div class="wa-steps">
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-sales-s1-title">Qualify</h4><p data-i18n="automate-sales-s1-desc">Pulls context from the CRM and past deals with the account.</p></div>
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-sales-s2-title">Quote</h4><p data-i18n="automate-sales-s2-desc">Builds the quote off your pricing rules, not a template guess.</p></div>
-            <div class="wa-step"><span class="role you"><span class="dot"></span><span data-i18n="role-you">You</span></span><h4 data-i18n="automate-sales-s3-title">Send-off</h4><p data-i18n="automate-sales-s3-desc">You review anything outside standard terms.</p></div>
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-sales-s4-title">Follow-up</h4><p data-i18n="automate-sales-s4-desc">Sequences the chase and stops the moment they reply.</p></div>
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-sales-s5-title">Order intake</h4><p data-i18n="automate-sales-s5-desc">Creates the order and keeps the CRM clean on its own.</p></div>
-          </div>
-          <div class="wa-absorbs">
-            <span class="wa-absorbs-label" data-i18n="automate-absorbs-label">Work it absorbs</span>
-            <div class="wa-tags">
-              <span class="wa-tag" data-i18n="automate-sales-tag1">quote generation</span>
-              <span class="wa-tag" data-i18n="automate-sales-tag2">follow-up sequencing</span>
-              <span class="wa-tag" data-i18n="automate-sales-tag3">CRM hygiene</span>
-              <span class="wa-tag" data-i18n="automate-sales-tag4">order intake</span>
-            </div>
-            <span class="wa-cta-tag" data-i18n="sales-result">→ Reps sell, not update records</span>
-          </div>
-        </div>
-
-        <div class="demo-tabpane" data-pane="wa-fin">
-          <p class="wa-flow-label"><span data-i18n="automate-flow-label">One workflow, end to end</span> · <strong data-i18n="automate-fin-flow">invoice → reconciled → close ready</strong></p>
-          <div class="wa-steps">
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-fin-s1-title">Invoice intake</h4><p data-i18n="automate-fin-s1-desc">Captures the document and extracts the fields that matter.</p></div>
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-fin-s2-title">Match</h4><p data-i18n="automate-fin-s2-desc">Reconciles against the ledger and the bank feed line by line.</p></div>
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-fin-s3-title">Flag diffs</h4><p data-i18n="automate-fin-s3-desc">Isolates what doesn't tie out instead of burying it.</p></div>
-            <div class="wa-step"><span class="role you"><span class="dot"></span><span data-i18n="role-you">You</span></span><h4 data-i18n="automate-fin-s4-title">Judgment calls</h4><p data-i18n="automate-fin-s4-desc">You resolve the handful that genuinely need finance.</p></div>
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-fin-s5-title">Close pack</h4><p data-i18n="automate-fin-s5-desc">Posts entries and assembles the compliance reporting.</p></div>
-          </div>
-          <div class="wa-absorbs">
-            <span class="wa-absorbs-label" data-i18n="automate-absorbs-label">Work it absorbs</span>
-            <div class="wa-tags">
-              <span class="wa-tag" data-i18n="automate-fin-tag1">reconciliation</span>
-              <span class="wa-tag" data-i18n="automate-fin-tag2">invoice processing</span>
-              <span class="wa-tag" data-i18n="automate-fin-tag3">close readiness</span>
-              <span class="wa-tag" data-i18n="automate-fin-tag4">compliance reporting</span>
-            </div>
-            <span class="wa-cta-tag" data-i18n="finance-result">→ Close in days, not weeks</span>
-          </div>
-        </div>
-
-        <div class="demo-tabpane" data-pane="wa-beyond">
-          <p class="wa-flow-label"><span data-i18n="automate-flow-label">One workflow, end to end</span> · <strong data-i18n="automate-beyond-flow">any repeating chain across your operation</strong></p>
-          <div class="wa-steps">
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-beyond-s1-title">Intake</h4><p data-i18n="automate-beyond-s1-desc">Documents, tickets, forms, requests, whatever arrives.</p></div>
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-beyond-s2-title">Classify</h4><p data-i18n="automate-beyond-s2-desc">Decides what it is using your context layer, not keywords.</p></div>
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-beyond-s3-title">Extract</h4><p data-i18n="automate-beyond-s3-desc">Pulls the data out and into the systems of record.</p></div>
-            <div class="wa-step"><span class="role you"><span class="dot"></span><span data-i18n="role-you">You</span></span><h4 data-i18n="automate-beyond-s4-title">Exceptions</h4><p data-i18n="automate-beyond-s4-desc">The odd cases route to the person who owns them.</p></div>
-            <div class="wa-step"><span class="role"><span class="dot"></span><span data-i18n="role-agent">Agent</span></span><h4 data-i18n="automate-beyond-s5-title">Resolve</h4><p data-i18n="automate-beyond-s5-desc">Completes the request and reports what it handled.</p></div>
-          </div>
-          <div class="wa-absorbs">
-            <span class="wa-absorbs-label" data-i18n="automate-absorbs-label">Work it absorbs</span>
-            <div class="wa-tags">
-              <span class="wa-tag" data-i18n="automate-beyond-tag1">procurement</span>
-              <span class="wa-tag" data-i18n="automate-beyond-tag2">onboarding</span>
-              <span class="wa-tag" data-i18n="automate-beyond-tag3">document intake</span>
-              <span class="wa-tag" data-i18n="automate-beyond-tag4">ticket triage</span>
-            </div>
-            <span class="wa-cta-tag" data-i18n="beyond-result">→ Wherever hours get lost</span>
-          </div>
-        </div>
-
+      <div class="gov-col">
+        <svg class="gov-icon" width="44" height="20" viewBox="0 0 44 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="6" width="40" height="8" rx="4" stroke="var(--ink)" stroke-width="1.25"/>
+          <line x1="15" y1="10" x2="29" y2="10" stroke="var(--ink)" stroke-width="1.25" stroke-dasharray="3 3"/>
+          <circle cx="22" cy="10" r="2" fill="var(--ink)"/>
+        </svg>
+        <h3 data-i18n="governance-2-title">Permissions and business rules</h3>
+        <p data-i18n="governance-2-desc">You define what each agent can do and where it has to stop and ask for approval.</p>
       </div>
-      <div class="demo-cells">
-        <div class="cell"><div class="ct" data-i18n="automate-feat1-title">End to end</div><div class="cd" data-i18n="automate-feat1-desc">The whole chain, not the one step that demos well.</div></div>
-        <div class="cell"><div class="ct" data-i18n="automate-feat2-title">Human where it counts</div><div class="cd" data-i18n="automate-feat2-desc">Agents run it; you keep the calls that need judgment.</div></div>
-        <div class="cell"><div class="ct" data-i18n="automate-feat3-title">Your systems</div><div class="cd" data-i18n="automate-feat3-desc">Same CRM, ERP and inbox your team already uses.</div></div>
+      <div class="gov-col">
+        <svg class="gov-icon" width="44" height="38" viewBox="0 0 40 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="2" width="36" height="8" rx="4" stroke="var(--ink)" stroke-width="1.25"/>
+          <rect x="2" y="13" width="36" height="8" rx="4" stroke="var(--ink)" stroke-width="1.25" stroke-dasharray="3.5 3.5"/>
+          <rect x="2" y="24" width="36" height="8" rx="4" stroke="var(--ink)" stroke-width="1.25"/>
+        </svg>
+        <h3 data-i18n="governance-3-title">Model and infrastructure agnostic</h3>
+        <p data-i18n="governance-3-desc">We run on whatever model and infrastructure works for your company.</p>
       </div>
     </div>
+    <div class="gov-banner" data-reveal aria-hidden="true"></div>
   </div>
 </section>
 
@@ -921,7 +782,6 @@
 (function(){
   var ES = {
     "nav-how": "Conocé la plataforma →",
-    "nav-automate": "Qué Automatizamos",
     "nav-platform": "Plataforma",
     "nav-usecases": "Casos de Uso",
     "nav-company": "Empresa",
@@ -932,12 +792,6 @@
     "hero-neg": "Sin migraciones. Sin roadmaps de 18 meses.",
     "trust-built": "Construido sobre:",
     "trust-stack": "Tu stack existente. Somos agnósticos de modelo.",
-    "manifesto-eyebrow-1": "El Production Gap",
-    "manifesto-h2-1": "La IA no falla en el modelo. Falla en el contexto.",
-    "manifesto-p-1": "La mayoría de la IA nunca llega a producción, y casi nunca es por el modelo. Para funcionar en tu operación, la IA tiene que saber cómo funciona: tus permisos, tus excepciones, las reglas que nadie escribió. Eso vive en la cabeza de tu equipo, por eso la demo funciona y la producción no.",
-    "manifesto-eyebrow-2": "La Solución",
-    "manifesto-h2-2": "Extraemos cómo funciona tu operación",
-    "manifesto-p-2": "Extraemos cómo funciona realmente tu operación y lo convertimos en la memoria sobre la que corren tus agentes: en vivo, todos los días, sobre el stack que ya usás.",
     "how-eyebrow": "Cómo lo hacemos",
     "how-h2": "Cuatro etapas, un solo resultado: producción.",
     "stage1-title": "Auditoría de Oportunidades de IA",
@@ -1055,91 +909,16 @@
     "hw-4-cell4-title": "Ingenieros activos",
     "hw-4-cell4-desc": "Seguimos ahí para afinar y sumar trabajo nuevo.",
 
-    "role-agent": "Agente",
-    "role-you": "Vos",
+    "governance-eyebrow": "Gobernanza",
+    "governance-h2": "Un sistema gobernable",
+    "governance-lede": "Hecho para empresas que tienen que responder por lo que hace su IA.",
+    "governance-1-title": "Trazabilidad completa",
+    "governance-1-desc": "Cada ejecución guarda qué hizo, con qué datos, qué escaló y quién lo aprobó.",
+    "governance-2-title": "Permisos y reglas de negocio",
+    "governance-2-desc": "Definís qué puede hacer cada agente y dónde tiene que frenar y pedir aprobación.",
+    "governance-3-title": "Agnósticos de modelo e infraestructura",
+    "governance-3-desc": "Corremos sobre el modelo y la infraestructura que a tu empresa le sirvan.",
 
-    "automate-h2": "Flujos de trabajo completos, no tareas aisladas.",
-    "automate-lede": "No automatizamos una tarea y le decimos transformación. Mapeamos cómo funciona un flujo de trabajo completo, y después construimos los agentes que lo ejecutan, de punta a punta, sobre los sistemas que ya usás.",
-    "automate-flow-label": "Un flujo de trabajo, de punta a punta",
-    "automate-absorbs-label": "Trabajo que absorbe",
-    "automate-feat1-title": "De punta a punta",
-    "automate-feat1-desc": "La cadena completa, no el único paso que luce bien en una demo.",
-    "automate-feat2-title": "Humano donde importa",
-    "automate-feat2-desc": "Los agentes lo ejecutan; vos te quedás con las decisiones que requieren criterio.",
-    "automate-feat3-title": "Tus sistemas",
-    "automate-feat3-desc": "El mismo CRM, ERP e inbox que ya usa tu equipo.",
-
-    "ops-title": "Operaciones",
-    "ops-result": "→ Sale sin backlog acumulado",
-    "automate-ops-flow": "excepción de pedido → resuelto y enviado",
-    "automate-ops-s1-title": "Ingesta",
-    "automate-ops-s1-desc": "Lee el pedido desde el email o el portal y lo normaliza.",
-    "automate-ops-s2-title": "Validación",
-    "automate-ops-s2-desc": "Lo chequea contra el ERP, detecta desfasajes de fecha y precio.",
-    "automate-ops-s3-title": "Aprobación",
-    "automate-ops-s3-desc": "Solo las excepciones que tus reglas dicen que necesitan firma humana.",
-    "automate-ops-s4-title": "Carga entre sistemas",
-    "automate-ops-s4-desc": "Escribe en cada sistema que lo necesita, sin carga doble.",
-    "automate-ops-s5-title": "Cierra el ciclo",
-    "automate-ops-s5-desc": "Avisa al responsable y deja registrado qué decidió y por qué.",
-    "automate-ops-tag1": "armado de reportes",
-    "automate-ops-tag2": "ruteo de aprobaciones",
-    "automate-ops-tag3": "manejo de excepciones",
-    "automate-ops-tag4": "carga de datos entre sistemas",
-
-    "sales-title": "Ventas",
-    "sales-result": "→ Los vendedores venden, no cargan datos",
-    "automate-sales-flow": "solicitud entrante → pedido en el sistema",
-    "automate-sales-s1-title": "Calificar",
-    "automate-sales-s1-desc": "Trae contexto del CRM y de negocios anteriores con la cuenta.",
-    "automate-sales-s2-title": "Cotizar",
-    "automate-sales-s2-desc": "Arma la cotización con tus reglas de precios, no adivinando con una plantilla.",
-    "automate-sales-s3-title": "Envío",
-    "automate-sales-s3-desc": "Vos revisás todo lo que se sale de los términos estándar.",
-    "automate-sales-s4-title": "Seguimiento",
-    "automate-sales-s4-desc": "Secuencia el seguimiento y para en el momento en que responden.",
-    "automate-sales-s5-title": "Carga del pedido",
-    "automate-sales-s5-desc": "Crea el pedido y mantiene el CRM limpio por su cuenta.",
-    "automate-sales-tag1": "generación de cotizaciones",
-    "automate-sales-tag2": "secuencias de seguimiento",
-    "automate-sales-tag3": "limpieza del CRM",
-    "automate-sales-tag4": "carga de pedidos",
-
-    "finance-title": "Finanzas",
-    "finance-result": "→ Cierre en días, no semanas",
-    "automate-fin-flow": "factura → conciliada → lista para el cierre",
-    "automate-fin-s1-title": "Ingesta de facturas",
-    "automate-fin-s1-desc": "Captura el documento y extrae los campos que importan.",
-    "automate-fin-s2-title": "Conciliación",
-    "automate-fin-s2-desc": "Concilia contra el libro mayor y el extracto bancario, línea por línea.",
-    "automate-fin-s3-title": "Marca diferencias",
-    "automate-fin-s3-desc": "Aísla lo que no cierra en vez de enterrarlo.",
-    "automate-fin-s4-title": "Decisiones de criterio",
-    "automate-fin-s4-desc": "Vos resolvés el puñado que realmente necesita a finanzas.",
-    "automate-fin-s5-title": "Paquete de cierre",
-    "automate-fin-s5-desc": "Postea los asientos y arma el reporte de compliance.",
-    "automate-fin-tag1": "conciliación",
-    "automate-fin-tag2": "procesamiento de facturas",
-    "automate-fin-tag3": "cierre contable",
-    "automate-fin-tag4": "reportes de compliance",
-
-    "beyond-title": "Y más",
-    "beyond-result": "→ Donde sea que se pierdan horas",
-    "automate-beyond-flow": "cualquier cadena que se repite en tu operación",
-    "automate-beyond-s1-title": "Ingesta",
-    "automate-beyond-s1-desc": "Documentos, tickets, formularios, solicitudes, lo que llegue.",
-    "automate-beyond-s2-title": "Clasificar",
-    "automate-beyond-s2-desc": "Decide de qué se trata usando tu capa de contexto, no palabras clave.",
-    "automate-beyond-s3-title": "Extraer",
-    "automate-beyond-s3-desc": "Saca los datos y los lleva a los sistemas de registro.",
-    "automate-beyond-s4-title": "Excepciones",
-    "automate-beyond-s4-desc": "Los casos raros van directo a quien es responsable de ellos.",
-    "automate-beyond-s5-title": "Resolver",
-    "automate-beyond-s5-desc": "Completa la solicitud y reporta qué hizo.",
-    "automate-beyond-tag1": "compras",
-    "automate-beyond-tag2": "onboarding",
-    "automate-beyond-tag3": "ingesta de documentos",
-    "automate-beyond-tag4": "triage de tickets",
     "bridge-eyebrow": "Por qué Nocti",
     "bridge-h2": "Plataforma e ingenieros. No uno o el otro.",
     "bridge-lede": "Las herramientas te dan el software y se van. Las consultoras te dan un informe y se van.<br><br>Nosotros te entregamos agentes funcionando y nos quedamos, sobre una memoria de tu operación que se afina con cada despliegue.",
