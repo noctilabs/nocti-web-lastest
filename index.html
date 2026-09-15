@@ -137,14 +137,14 @@
   @media (max-width:900px){ .manifesto-row{ grid-template-columns:1fr;} .manifesto-col:first-child{ border-right:none; border-bottom:1px solid var(--border);} }
   .gap-diagram{ margin-top:48px;}
 
-  .gov-row{ margin-top:40px; display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--border); border-radius:12px; overflow:hidden;}
-  .gov-col{ padding:32px 28px; border-left:1px solid var(--border);}
-  .gov-col:first-child{ border-left:none;}
-  .gov-icon{ display:block; margin-bottom:22px;}
-  .gov-col h3{ font-size:19px; font-weight:600; letter-spacing:-0.01em; line-height:1.3;}
-  .gov-col p{ margin-top:10px; font-size:15px; color:var(--ink-secondary); line-height:1.55;}
-  @media (max-width:900px){ .gov-row{ grid-template-columns:1fr;} .gov-col{ border-left:none; border-top:1px solid var(--border);} .gov-col:first-child{ border-top:none;} }
-  .gov-banner{ margin-top:48px; border-radius:28px; aspect-ratio:1355/514; background-image:url("/assets/hw/gradient-frame.png"); background-size:cover; background-position:center;}
+  .gov-row{ margin-top:64px; display:grid; grid-template-columns:repeat(3,1fr); column-gap:48px;}
+  .gov-col{ padding-left:24px; border-left:1px solid var(--border-strong);}
+  .gov-col:first-child{ padding-left:0; border-left:none;}
+  .gov-icon{ display:block; margin-bottom:28px;}
+  .gov-col h3{ font-size:22px; font-weight:600; letter-spacing:-0.01em; line-height:1.25;}
+  .gov-col p{ margin-top:32px; font-size:15.5px; color:var(--ink-secondary); line-height:1.55;}
+  @media (max-width:900px){ .gov-row{ grid-template-columns:1fr; row-gap:40px;} .gov-col{ padding-left:0; border-left:none; padding-top:32px; border-top:1px solid var(--border-strong);} .gov-col:first-child{ padding-top:0; border-top:none;} }
+  .gov-banner{ margin-top:80px; border-radius:clamp(24px,6vw,64px); aspect-ratio:1355/514; background-image:url("/assets/hw/gradient-frame.png"); background-size:cover; background-position:center;}
   @media (max-width:640px){ .gov-banner{ aspect-ratio:4/3;} }
   @media (max-width:700px){
     .gap-diagram-viewport{ display:none;}
@@ -560,8 +560,7 @@
 <section class="block" id="automate">
   <div class="wrap">
     <div data-reveal>
-      <span class="eyebrow" data-i18n="governance-eyebrow">Governance</span>
-      <h2 style="margin-top:14px;" data-i18n="governance-h2">A governable system</h2>
+      <h2 data-i18n="governance-h2">A governable system</h2>
       <p class="block-lede" data-i18n="governance-lede">Built for companies that have to answer for what their AI does.</p>
     </div>
     <div class="gov-row" data-reveal>
@@ -909,7 +908,6 @@
     "hw-4-cell4-title": "Ingenieros activos",
     "hw-4-cell4-desc": "Seguimos ahí para afinar y sumar trabajo nuevo.",
 
-    "governance-eyebrow": "Gobernanza",
     "governance-h2": "Un sistema gobernable",
     "governance-lede": "Hecho para empresas que tienen que responder por lo que hace su IA.",
     "governance-1-title": "Trazabilidad completa",
