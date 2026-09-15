@@ -130,6 +130,13 @@
   .block h2{ font-size:clamp(26px,3.2vw,38px); max-width:18ch;}
   .block-lede{ margin-top:18px; font-size:16px; color:var(--ink-secondary); max-width:60ch;}
 
+  .statement-lead{ font-size:clamp(21px,2.8vw,30px); font-weight:500; line-height:1.45; text-align:center; max-width:50ch; margin:0 auto; color:var(--ink-muted);}
+  .statement-lead strong{ color:var(--ink); font-weight:600;}
+  .statement-head{ margin-top:84px;}
+  .statement-head h2{ font-size:clamp(32px,4.4vw,52px); line-height:1.16; max-width:none;}
+  .statement-head .block-lede{ font-size:17px;}
+  @media (max-width:700px){ .statement-head{ margin-top:56px;} }
+
   .manifesto-row{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--border); border-radius:12px; overflow:hidden;}
   .manifesto-col{ padding:40px 36px;}
   .manifesto-col:first-child{ border-right:1px solid var(--border);}
@@ -146,6 +153,18 @@
   @media (max-width:900px){ .gov-row{ grid-template-columns:1fr; row-gap:40px;} .gov-col{ padding-left:0; border-left:none; padding-top:32px; border-top:1px solid var(--border-strong);} .gov-col:first-child{ padding-top:0; border-top:none;} }
   .gov-banner{ margin-top:80px; border-radius:clamp(24px,6vw,64px); aspect-ratio:1355/514; background-image:url("/assets/hw/gradient-frame.png"); background-size:cover; background-position:center;}
   @media (max-width:640px){ .gov-banner{ aspect-ratio:4/3;} }
+
+  .ind-head{ text-align:center; max-width:640px; margin:0 auto;}
+  .ind-head h2{ max-width:none; font-size:clamp(24px,3vw,32px);}
+  .ind-head .block-lede{ margin-left:auto; margin-right:auto;}
+  .ind-tabs{ margin-top:40px; display:flex; flex-wrap:wrap; justify-content:center; gap:4px; background:var(--bg-subtle); border:1px solid var(--border); border-radius:999px; padding:6px; width:fit-content; max-width:100%; margin-left:auto; margin-right:auto;}
+  .ind-tabs span{ font-family:var(--font-mono); font-size:12px; letter-spacing:0.02em; padding:10px 18px; border-radius:999px; color:var(--ink-muted); white-space:nowrap;}
+  .ind-tabs span.on{ background:var(--ink); color:#fff;}
+  .ind-photo{ position:relative; margin-top:32px; border-radius:clamp(20px,4vw,48px); overflow:hidden;}
+  .ind-photo img{ display:block; width:100%; height:auto; aspect-ratio:1210/641; object-fit:cover;}
+  .ind-caption{ position:absolute; left:0; right:0; bottom:0; padding:32px clamp(20px,5vw,64px) clamp(28px,5vw,48px); text-align:center; background:linear-gradient(0deg,rgba(0,0,0,0.72),rgba(0,0,0,0));}
+  .ind-caption p{ color:#fff; font-size:15px; line-height:1.55; max-width:56ch; margin:0 auto;}
+  .ind-btn{ display:inline-block; margin-top:18px; font-family:var(--font-mono); font-size:12.5px; color:#fff; background:rgba(255,255,255,0.18); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,0.3); border-radius:999px; padding:10px 20px;}
   @media (max-width:700px){
     .gap-diagram-viewport{ display:none;}
   }
@@ -269,15 +288,18 @@
   .bridge-block .eyebrow{ color:var(--ink-muted);}
   .bridge-block .block-lede{ color:rgba(255,255,255,0.7);}
   .bridge-block .block-lede strong{ color:#fff;}
+  .bridge-statement{ font-size:clamp(28px,4.4vw,52px); line-height:1.2; max-width:none; text-align:center; margin:0 auto;}
 
   /* CTA */
-  .cta{
-    background-color:var(--bg); color:var(--ink); text-align:center; padding:72px 0;
-    border-top:1px solid var(--border);
+  .cta{ background-color:var(--bg); padding:100px 0; border-top:1px solid var(--border);}
+  .cta-banner{
+    position:relative; text-align:center; overflow:hidden;
+    border-radius:clamp(24px,6vw,64px); padding:clamp(56px,9vw,110px) clamp(24px,6vw,64px);
+    background-image:url("/assets/hw/gradient-frame.png"); background-size:cover; background-position:center;
   }
-  .cta h2{ color:var(--ink); font-size:clamp(28px,4vw,42px);}
-  .cta p{ margin-top:16px; color:var(--ink-secondary); max-width:50ch; margin-left:auto; margin-right:auto;}
-  .cta .hero-cta{ justify-content:center; margin-top:30px;}
+  .cta-banner h2{ color:var(--ink); font-size:clamp(28px,4.4vw,52px); max-width:none; line-height:1.2;}
+  .cta-banner p{ margin-top:20px; color:var(--ink-secondary); font-size:17px; max-width:50ch; margin-left:auto; margin-right:auto;}
+  .cta-btn{ margin-top:32px; color:var(--ink); background:rgba(255,255,255,0.45); border-color:rgba(0,0,0,0.12);}
 
   footer{ padding:30px 0;}
   .footer-inner{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-family:var(--font-mono); font-size:11.5px; color:var(--ink-muted);}
@@ -355,11 +377,21 @@
   </div>
 </div>
 
+<section class="block statement-block" data-reveal>
+  <div class="wrap">
+    <p class="statement-lead"><strong data-i18n="statement-lead-strong">Your systems don't connect to each other. They connect through people, </strong><span data-i18n="statement-lead-muted">who copy data from one place to another, flag when something arrives, and remember the exceptions nobody wrote down.</span></p>
+    <div class="statement-head">
+      <h2 data-i18n="statement-h2">We understand your operation.<br>We deploy the agents.<br>You keep control.</h2>
+      <p class="block-lede" data-i18n="statement-lede">We turn how your company actually runs into a layer your agents run on, and your team controls.</p>
+    </div>
+  </div>
+</section>
+
 <section class="block gray" id="how">
   <div class="wrap">
     <div data-reveal>
       <span class="eyebrow" data-i18n="how-eyebrow">How we do it</span>
-      <h2 style="margin-top:14px;" data-i18n="how-h2">Four stages, one outcome: production.</h2>
+      <h2 style="margin-top:14px;" data-i18n="how-h2">Three stages, one outcome: production.</h2>
     </div>
     <div class="hw-stage" data-reveal>
       <header class="hw-shead">
@@ -391,49 +423,7 @@
     <div class="hw-stage" data-reveal>
       <header class="hw-shead">
         <div>
-          <div class="hw-step-eyebrow" data-i18n="hw-eyebrow-2">02 · Context</div>
-          <h3 class="hw-stitle" data-i18n="hw-title-2">The context layer your agents run on</h3>
-        </div>
-        <p class="hw-sintro" data-i18n="hw-intro-2">Everything the Interviewer extracts becomes your context layer: how your company actually runs, structured and machine-readable. It's what every agent runs on, and it sharpens on its own as they work.</p>
-      </header>
-      <div class="hw-visual-frame">
-        <div class="hw-flowmix">
-          <div class="hw-flowcol">
-            <div class="fsh" data-i18n="hw-flow-sources">Sources · how work really runs</div>
-            <div class="graphbox"><svg viewBox="0 0 300 240" id="hwSynapse" style="width:100%;height:100%;max-height:100%" preserveAspectRatio="xMidYMid meet"></svg></div>
-          </div>
-          <div class="hw-farrow">
-            <svg viewBox="0 0 60 20" width="60" height="20"><line x1="0" y1="10" x2="52" y2="10" stroke="#16a34a" stroke-width="1.5"/><polygon points="52,5 60,10 52,15" fill="#16a34a"/><circle r="2.5" fill="#16a34a" cx="0" cy="10"><animate attributeName="cx" values="0;52" dur="1.4s" repeatCount="indefinite"/></circle></svg>
-          </div>
-          <div class="hw-fmid">
-            <div class="hw-fcore" data-i18n="hw-context-core">CONTEXT</div>
-            <div class="hw-fcorelbl" data-i18n="hw-structuring">structuring</div>
-          </div>
-          <div class="hw-farrow">
-            <svg viewBox="0 0 60 20" width="60" height="20"><line x1="0" y1="10" x2="52" y2="10" stroke="#16a34a" stroke-width="1.5"/><polygon points="52,5 60,10 52,15" fill="#16a34a"/><circle r="2.5" fill="#16a34a" cx="0" cy="10"><animate attributeName="cx" values="0;52" dur="1.4s" begin="0.5s" repeatCount="indefinite"/></circle></svg>
-          </div>
-          <div class="hw-flowcol">
-            <div class="fsh" data-i18n="hw-flow-layer">Context layer · machine-readable</div>
-            <div class="rules">
-              <div class="hw-fitem"><span>source_of_truth</span><span class="v">→ ERP</span></div>
-              <div class="hw-fitem"><span>client #402</span><span class="v" data-i18n="hw-rule-2-v">→ manual review</span></div>
-              <div class="hw-fitem"><span>approval &gt; $10k</span><span class="v" data-i18n="hw-rule-3-v">→ finance lead</span></div>
-              <div class="hw-fitem"><span data-i18n="hw-rule-4-k">malformed input</span><span class="v" data-i18n="hw-rule-4-v">→ flag + hold</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="demo-cells">
-          <div class="cell"><div class="ct" data-i18n="hw-2-cell1-title">Structured</div><div class="cd" data-i18n="hw-2-cell1-desc">Machine-readable, not a wiki nobody opens.</div></div>
-          <div class="cell"><div class="ct" data-i18n="hw-2-cell2-title">Self-correcting</div><div class="cd" data-i18n="hw-2-cell2-desc">Every live exception updates it automatically.</div></div>
-          <div class="cell"><div class="ct" data-i18n="hw-2-cell3-title">Nobody maintains it</div><div class="cd" data-i18n="hw-2-cell3-desc">It stays current on its own as agents work.</div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hw-stage" data-reveal>
-      <header class="hw-shead">
-        <div>
-          <div class="hw-step-eyebrow" data-i18n="hw-eyebrow-3">03 · Deploy</div>
+          <div class="hw-step-eyebrow" data-i18n="hw-eyebrow-3">02 · Deploy</div>
           <h3 class="hw-stitle" data-i18n="hw-title-3">Agents go live in your real workflows</h3>
         </div>
         <p class="hw-sintro" data-i18n="hw-intro-3">We architect the agent system against your context layer and ship it into the workflows you already run, on the stack you already use. Working agents from day one, not a pilot in a sandbox.</p>
@@ -496,7 +486,7 @@
     <div class="hw-stage" data-reveal>
       <header class="hw-shead">
         <div>
-          <div class="hw-step-eyebrow" data-i18n="hw-eyebrow-4">04 · Control</div>
+          <div class="hw-step-eyebrow" data-i18n="hw-eyebrow-4">03 · Control</div>
           <h3 class="hw-stitle" data-i18n="hw-title-4">One panel over every agent</h3>
         </div>
         <p class="hw-sintro" data-i18n="hw-intro-4">Everything you deployed, in one place. What each agent is saving, what it's doing right now, and where it needs your call, department by department.</p>
@@ -557,6 +547,35 @@
   </div>
 </section>
 
+<section class="block bridge-block">
+  <div class="wrap" data-reveal>
+    <h2 class="bridge-statement" data-i18n="bridge-statement">A tool hands you software and leaves.<br>A consultancy hands you a report and leaves.<br>We leave agents working and improving.</h2>
+  </div>
+</section>
+
+<section class="block" id="industries">
+  <div class="wrap">
+    <div class="ind-head" data-reveal>
+      <h2 data-i18n="ind-h2">Built for operations where every exception gets resolved by a person.</h2>
+      <p class="block-lede" data-i18n="ind-lede">We work in industries built on processes nobody documented and margins that don't forgive mistakes.</p>
+    </div>
+    <div class="ind-tabs" data-reveal aria-label="Industries">
+      <span data-i18n="ind-tab-health">Health &amp; Fitness</span>
+      <span class="on" data-i18n="ind-tab-mfg">Manufacturing</span>
+      <span data-i18n="ind-tab-cpg">CPG</span>
+      <span data-i18n="ind-tab-food">Food &amp; Beverages</span>
+      <span data-i18n="ind-tab-retail">Retail</span>
+    </div>
+    <div class="ind-photo" data-reveal>
+      <img src="/assets/hw/industries-manufacturing.png" alt="" loading="lazy">
+      <div class="ind-caption">
+        <p data-i18n="ind-caption">Order release, accounts-receivable collection, and supplier reconciliation, inside the systems stores already use.</p>
+        <a href="/book-a-call" class="ind-btn" data-i18n="ind-cta">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="block" id="automate">
   <div class="wrap">
     <div data-reveal>
@@ -595,24 +614,16 @@
         <p data-i18n="governance-3-desc">We run on whatever model and infrastructure works for your company.</p>
       </div>
     </div>
-    <div class="gov-banner" data-reveal aria-hidden="true"></div>
-  </div>
-</section>
-
-<section class="block bridge-block">
-  <div class="wrap" data-reveal>
-    <span class="eyebrow" data-i18n="bridge-eyebrow">Why Nocti</span>
-    <h2 style="margin-top:14px;" data-i18n="bridge-h2">Platform and engineers. Not one or the other.</h2>
-    <p class="block-lede" data-i18n="bridge-lede">Tools hand you software and leave. Consultancies hand you a deck and leave.<br><br>We hand you working agents and stay, running on a memory of your operation that sharpens with every deployment.</p>
   </div>
 </section>
 
 <section class="cta" id="cta">
-  <div class="wrap" data-reveal>
-    <span class="eyebrow" style="color:var(--ink-muted);" data-i18n="cta-eyebrow">Let's talk</span>
-    <h2 style="margin-top:14px;" data-i18n="cta-h2">Ready to close your Production Gap?</h2>
-    <p data-i18n="cta-p">Start with the audit: a prioritized map of where agents create the most value in your operation. No commitment beyond it.</p>
-    <div class="hero-cta"><a href="/book-a-call" class="btn btn-primary" data-i18n="book-a-call">Book a call →</a></div>
+  <div class="wrap">
+    <div class="cta-banner" data-reveal>
+      <h2 data-i18n="cta-h2">Our team maps the first process and takes it to production</h2>
+      <p data-i18n="cta-p">In weeks, inside the systems you already have.</p>
+      <a href="/book-a-call" class="ind-btn cta-btn" data-i18n="cta-btn">Contact us →</a>
+    </div>
   </div>
 </section>
 
@@ -791,8 +802,12 @@
     "hero-neg": "Sin migraciones. Sin roadmaps de 18 meses.",
     "trust-built": "Construido sobre:",
     "trust-stack": "Tu stack existente. Somos agnósticos de modelo.",
+    "statement-lead-strong": "Tus sistemas no se conectan entre sí. Se conectan a través de personas, ",
+    "statement-lead-muted": "que copian datos de un lado al otro, avisan que algo llegó y se acuerdan de las excepciones que nadie escribió.",
+    "statement-h2": "Entendemos tu operación.<br>Desplegamos los agentes.<br>Te damos el control.",
+    "statement-lede": "Convertimos cómo funciona tu empresa en una capa sobre la que corren tus agentes, y tu equipo controla.",
     "how-eyebrow": "Cómo lo hacemos",
-    "how-h2": "Cuatro etapas, un solo resultado: producción.",
+    "how-h2": "Tres etapas, un solo resultado: producción.",
     "stage1-title": "Auditoría de Oportunidades de IA",
     "stage3-title": "Despliegue en Producción",
     "stage4-title": "Control y Mejora",
@@ -816,25 +831,7 @@
     "hw-1-cell3-title": "Estructurado",
     "hw-1-cell3-desc": "La salida es legible por máquina desde el primer momento.",
 
-    "hw-eyebrow-2": "02 · Contexto",
-    "hw-title-2": "La capa de contexto sobre la que corren tus agentes",
-    "hw-intro-2": "Todo lo que extrae el Entrevistador se convierte en tu capa de contexto: cómo funciona realmente tu empresa, estructurado y legible por máquina. Es lo que usa cada agente, y se afina solo a medida que trabajan.",
-    "hw-flow-sources": "Fuentes · cómo funciona el trabajo en la realidad",
-    "hw-context-core": "CONTEXTO",
-    "hw-structuring": "estructurando",
-    "hw-flow-layer": "Capa de contexto · legible por máquina",
-    "hw-rule-2-v": "→ revisión manual",
-    "hw-rule-3-v": "→ líder de finanzas",
-    "hw-rule-4-k": "input malformado",
-    "hw-rule-4-v": "→ marcar + retener",
-    "hw-2-cell1-title": "Estructurado",
-    "hw-2-cell1-desc": "Legible por máquina, no una wiki que nadie abre.",
-    "hw-2-cell2-title": "Se autocorrige",
-    "hw-2-cell2-desc": "Cada excepción en vivo la actualiza automáticamente.",
-    "hw-2-cell3-title": "Nadie la mantiene",
-    "hw-2-cell3-desc": "Se mantiene al día sola, a medida que los agentes trabajan.",
-
-    "hw-eyebrow-3": "03 · Despliegue",
+    "hw-eyebrow-3": "02 · Despliegue",
     "hw-title-3": "Los agentes salen en vivo en tus flujos reales",
     "hw-intro-3": "Diseñamos el sistema de agentes contra tu capa de contexto y lo llevamos a los flujos que ya corrés, sobre el stack que ya usás. Agentes funcionando desde el día uno, no un piloto en un sandbox.",
     "hw-tab-rollout": "Despliegue controlado",
@@ -870,7 +867,7 @@
     "hw-3-cell4-title": "Despliegue por etapas",
     "hw-3-cell4-desc": "En vivo por fases, nunca un solo cambio riesgoso.",
 
-    "hw-eyebrow-4": "04 · Control",
+    "hw-eyebrow-4": "03 · Control",
     "hw-title-4": "Un panel sobre cada agente",
     "hw-intro-4": "Todo lo que desplegaste, en un solo lugar. Qué está ahorrando cada agente, qué está haciendo ahora mismo, y dónde necesita tu decisión, área por área.",
     "hw-tab-savings": "Ahorros",
@@ -917,12 +914,21 @@
     "governance-3-title": "Agnósticos de modelo e infraestructura",
     "governance-3-desc": "Corremos sobre el modelo y la infraestructura que a tu empresa le sirvan.",
 
-    "bridge-eyebrow": "Por qué Nocti",
-    "bridge-h2": "Plataforma e ingenieros. No uno o el otro.",
-    "bridge-lede": "Las herramientas te dan el software y se van. Las consultoras te dan un informe y se van.<br><br>Nosotros te entregamos agentes funcionando y nos quedamos, sobre una memoria de tu operación que se afina con cada despliegue.",
-    "cta-eyebrow": "Hablemos",
-    "cta-h2": "¿Listo para cerrar tu Production Gap?",
-    "cta-p": "Empezá con la auditoría: un mapa priorizado de dónde los agentes generan más valor en tu operación. Sin compromiso más allá de eso.",
+    "bridge-statement": "Una herramienta te entrega software y se va.<br>Una consultora te entrega un informe y se va.<br>Nosotros dejamos agentes trabajando y mejorando.",
+
+    "ind-h2": "Hecho para operaciones donde cada excepción la resuelve una persona.",
+    "ind-lede": "Trabajamos en industrias que se sostienen sobre procesos que nadie documentó y márgenes que no perdonan errores.",
+    "ind-tab-health": "Salud &amp; Fitness",
+    "ind-tab-mfg": "Manufactura",
+    "ind-tab-cpg": "Consumo masivo",
+    "ind-tab-food": "Alimentos &amp; Bebidas",
+    "ind-tab-retail": "Retail",
+    "ind-caption": "Liberación de pedidos, cobranza a cuenta corriente y conciliación con proveedores, adentro de los sistemas que las tiendas ya usan.",
+    "ind-cta": "Conocer más →",
+
+    "cta-h2": "Nuestro equipo mapea el primer proceso y lo lleva a producción",
+    "cta-p": "En semanas, adentro de los sistemas que ya tenés.",
+    "cta-btn": "Contactános →",
     "footer-services": "Servicios",
     "footer-map": "Mapeo y Arquitectura",
     "footer-offices": "Oficinas",
