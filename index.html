@@ -221,6 +221,10 @@
   .hw-sintro{ margin-top:24px; font-size:18px; color:var(--ink-secondary); line-height:1.55; max-width:720px;}
 
   .hw-visual-frame{ margin-top:28px; padding:clamp(14px,2.4vw,34px); border-radius:20px; background-image:url("/assets/hw/gradient-frame.png"); background-size:cover; background-position:center;}
+  .hw-visual-frame .hw-chat{ border-radius:16px 16px 0 0; border-bottom:none;}
+  .hw-visual-frame .demo-tabs{ border-radius:16px 16px 0 0;}
+  .hw-visual-frame .demo-panel{ border-radius:0; border-bottom:none;}
+  .hw-visual-frame .demo-cells{ margin-top:0; border-radius:0 0 16px 16px;}
   .hw-chat{ position:relative; border:1px solid var(--border); border-radius:12px; background:var(--bg-subtle); overflow:hidden; padding:36px 40px; display:flex; flex-direction:column; gap:12px;}
   .hw-chat .hint{ position:absolute; top:16px; right:20px; font-family:var(--font-mono); font-size:10px; color:var(--ink-muted); border:1px solid var(--border-strong); padding:5px 10px; background:#fff; border-radius:6px;}
   .hw-who{ font-family:var(--font-mono); font-size:10px; letter-spacing:0.06em; color:var(--ink-muted); text-transform:uppercase;}
@@ -388,7 +392,7 @@
     <div class="hw-stage" data-reveal>
       <header class="hw-shead">
         <div>
-          <div class="hw-step-eyebrow" data-i18n="hw-eyebrow-1">01 · Audit</div>
+          <div class="hw-step-eyebrow" data-i18n="hw-eyebrow-1">01 . Audit</div>
           <h3 class="hw-stitle" data-i18n="hw-title-1">An agent that interviews your whole company</h3>
         </div>
         <p class="hw-sintro" data-i18n="hw-intro-1">It talks to every team in parallel and surfaces how the work actually runs: the exceptions, the workarounds, the rules nobody wrote down. No forms, no consultants with clipboards.</p>
@@ -415,7 +419,7 @@
     <div class="hw-stage" data-reveal>
       <header class="hw-shead">
         <div>
-          <div class="hw-step-eyebrow" data-i18n="hw-eyebrow-3">02 · Deploy</div>
+          <div class="hw-step-eyebrow" data-i18n="hw-eyebrow-3">02 . Deploy</div>
           <h3 class="hw-stitle" data-i18n="hw-title-3">Agents go live in your real workflows</h3>
         </div>
         <p class="hw-sintro" data-i18n="hw-intro-3">We architect the agent system against your context layer and ship it into the workflows you already run, on the stack you already use. Working agents from day one, not a pilot in a sandbox.</p>
@@ -478,7 +482,7 @@
     <div class="hw-stage" data-reveal>
       <header class="hw-shead">
         <div>
-          <div class="hw-step-eyebrow" data-i18n="hw-eyebrow-4">03 · Control</div>
+          <div class="hw-step-eyebrow" data-i18n="hw-eyebrow-4">03 . Control</div>
           <h3 class="hw-stitle" data-i18n="hw-title-4">One panel over every agent</h3>
         </div>
         <p class="hw-sintro" data-i18n="hw-intro-4">Everything you deployed, in one place. What each agent is saving, what it's doing right now, and where it needs your call, department by department.</p>
@@ -796,7 +800,7 @@
     "start-audit": "Empezá con la auditoría →",
     "no-commitment": "Sin compromiso más allá de eso.",
 
-    "hw-eyebrow-1": "01 · Auditoría",
+    "hw-eyebrow-1": "01 . Auditoría",
     "hw-title-1": "Un agente que entrevista a toda tu empresa",
     "hw-intro-1": "Habla con cada equipo en paralelo y saca a la luz cómo funciona el trabajo en la realidad: las excepciones, las vueltas que se le dan, las reglas que nadie escribió. Sin formularios, sin consultores con carpeta.",
     "hw-demo-video": "▶ ver demo",
@@ -813,7 +817,7 @@
     "hw-1-cell3-title": "Estructurado",
     "hw-1-cell3-desc": "La salida es legible por máquina desde el primer momento.",
 
-    "hw-eyebrow-3": "02 · Despliegue",
+    "hw-eyebrow-3": "02 . Despliegue",
     "hw-title-3": "Los agentes salen en vivo en tus flujos reales",
     "hw-intro-3": "Diseñamos el sistema de agentes contra tu capa de contexto y lo llevamos a los flujos que ya corrés, sobre el stack que ya usás. Agentes funcionando desde el día uno, no un piloto en un sandbox.",
     "hw-tab-rollout": "Despliegue controlado",
@@ -849,7 +853,7 @@
     "hw-3-cell4-title": "Despliegue por etapas",
     "hw-3-cell4-desc": "En vivo por fases, nunca un solo cambio riesgoso.",
 
-    "hw-eyebrow-4": "03 · Control",
+    "hw-eyebrow-4": "03 . Control",
     "hw-title-4": "Un panel sobre cada agente",
     "hw-intro-4": "Todo lo que desplegaste, en un solo lugar. Qué está ahorrando cada agente, qué está haciendo ahora mismo, y dónde necesita tu decisión, área por área.",
     "hw-tab-savings": "Ahorros",
