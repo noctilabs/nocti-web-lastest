@@ -177,23 +177,6 @@
     .audit-cta span{ text-align:center; font-size:13px;}
   }
 
-  /* shared demo tab bar — used by automate + how-we-do-it deploy/control panels */
-  .demo-tabs{ display:flex; flex-wrap:wrap; border:1px solid var(--border); border-bottom:none; border-radius:12px 12px 0 0; background:var(--bg-subtle);}
-  .demo-tab{ font-family:var(--font-mono); font-size:12px; letter-spacing:0.03em; padding:13px 20px; border:none; border-right:1px solid var(--border); cursor:pointer; background:transparent; color:var(--ink-muted);}
-  .demo-tab:last-child{ border-right:none;}
-  .demo-tab.on{ background:#fff; color:var(--ink); box-shadow:inset 0 -2px 0 var(--ink);}
-  .demo-panel{ border:1px solid var(--border); border-radius:0 0 12px 12px; background:#fff; overflow:hidden;}
-  .demo-tabpane{ display:none;}
-  .demo-tabpane.on{ display:block;}
-  .demo-cells{ margin-top:24px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden;}
-  .demo-cells.four{ grid-template-columns:repeat(4,1fr);}
-  .demo-cells .cell{ background:#fff; padding:20px 22px;}
-  .demo-cells .cell .ct{ font-family:var(--font-mono); font-size:12px; color:var(--ink); letter-spacing:0.03em; margin-bottom:7px; display:flex; align-items:center; gap:8px;}
-  .demo-cells .cell .ct::before{ content:"›"; color:var(--ink-muted);}
-  .demo-cells .cell .cd{ font-size:12.5px; color:var(--ink-muted); line-height:1.45;}
-  @media (max-width:900px){ .demo-cells.four{ grid-template-columns:1fr 1fr;} }
-  @media (max-width:700px){ .demo-cells{ grid-template-columns:1fr;} }
-
   /* AUTOMATE — tabbed workflow */
   .wa-panel{ margin-top:52px;}
   .wa-flow-label{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:28px; padding:32px 32px 0;}
@@ -221,9 +204,6 @@
   .hw-sintro{ margin-top:24px; font-size:18px; color:var(--ink-secondary); line-height:1.55; max-width:720px;}
 
   .hw-visual-frame{ margin-top:28px; padding:clamp(14px,2.4vw,34px); border-radius:20px; background-image:url("/assets/hw/gradient-frame.png"); background-size:cover; background-position:center;}
-  .hw-visual-frame .demo-tabs{ border-radius:16px 16px 0 0;}
-  .hw-visual-frame .demo-panel{ border-radius:0; border-bottom:none;}
-  .hw-visual-frame .demo-cells{ margin-top:0; border-radius:0 0 16px 16px;}
   .hw-screenshot{ display:block; width:100%; height:auto; border-radius:16px;}
 
   .hw-flowmix{ display:grid; grid-template-columns:1.2fr 56px 90px 56px 1fr; gap:20px; align-items:stretch; border:1px solid var(--border); border-radius:12px; background:var(--bg-subtle); padding:32px;}
@@ -242,41 +222,6 @@
   @keyframes hwRipple{ 0%{ transform:scale(1); opacity:.4;} 100%{ transform:scale(2.1); opacity:0;} }
   @media (max-width:900px){ .hw-flowmix{ grid-template-columns:1fr; gap:20px;} .hw-farrow svg{ transform:rotate(90deg);} }
 
-  .hw-rollpad{ padding:36px 32px;}
-  .hw-rolllabel{ font-family:var(--font-mono); font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:30px;}
-  .hw-phases{ display:grid; grid-template-columns:repeat(4,1fr); position:relative; padding-top:6px;}
-  .hw-phases .track{ position:absolute; top:13px; left:12.5%; width:75%; height:2px; background:var(--border);}
-  .hw-phases .fill{ position:absolute; top:13px; left:12.5%; height:2px; background:#16a34a; width:75%;}
-  .hw-phase{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 12px;}
-  .hw-phase .dot{ width:14px; height:14px; border-radius:50%; background:#16a34a; border:2px solid #16a34a; box-shadow:0 0 0 5px rgba(22,163,74,.12); margin-bottom:22px;}
-  .hw-phase .ph{ font-family:var(--font-mono); font-size:10px; color:var(--ink-muted); letter-spacing:0.05em; margin-bottom:7px;}
-  .hw-phase h4{ font-size:14.5px; font-weight:600; margin-bottom:7px; letter-spacing:-0.01em;}
-  .hw-phase p{ font-size:12px; color:var(--ink-muted); line-height:1.5;}
-  @media (max-width:900px){ .hw-phases{ grid-template-columns:1fr 1fr; row-gap:32px;} .hw-phases .track,.hw-phases .fill{ display:none;} }
-
-  .hw-deploy-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border);}
-  .hw-dcell{ background:#fff; padding:26px 22px; display:flex; flex-direction:column; gap:14px;}
-  .hw-dcell .ic{ width:38px; height:38px; border:1px solid var(--ink); border-radius:8px; display:flex; align-items:center; justify-content:center;}
-  .hw-dcell h4{ font-family:var(--font-mono); font-size:12px; letter-spacing:0.02em; font-weight:500;}
-  .hw-dcell p{ font-size:12.5px; color:var(--ink-muted); line-height:1.5;}
-  @media (max-width:900px){ .hw-deploy-grid{ grid-template-columns:1fr 1fr;} }
-  @media (max-width:700px){ .hw-deploy-grid{ grid-template-columns:1fr;} }
-
-  .hw-bignum{ padding:30px 32px 22px; border-bottom:1px solid var(--border); display:flex; align-items:baseline; gap:14px; background:var(--bg-subtle);}
-  .hw-bignum .n{ font-family:var(--font-mono); font-size:26px; font-weight:600;}
-  .hw-bignum .l{ font-family:var(--font-mono); font-size:10px; color:var(--ink-muted); letter-spacing:0.05em; text-transform:uppercase;}
-  .hw-table{ width:100%; font-family:var(--font-mono); font-size:12.5px; border-collapse:collapse; padding-bottom:26px;}
-  .demo-tabpane > .hw-table:first-child{ padding-top:14px;}
-  .hw-table th{ text-align:left; font-size:9px; letter-spacing:0.07em; text-transform:uppercase; color:var(--ink-muted); font-weight:400; padding:14px 32px; border-bottom:1px solid var(--border);}
-  .hw-table td{ padding:15px 32px; border-bottom:1px solid var(--border); color:var(--ink-secondary);}
-  .hw-table tr:last-child td{ border-bottom:none;}
-  .hw-table td.name{ color:var(--ink);}
-  .hw-table td.strong{ color:var(--ink); font-weight:600;}
-  .hw-bar{ display:inline-block; height:7px; background:var(--ink); vertical-align:middle; margin-right:9px;}
-  .hw-rdot{ display:inline-block; width:6px; height:6px; border-radius:50%; background:#16a34a; margin-right:7px;}
-  .hw-warn{ color:#b45309;}
-  .hw-ok{ color:#16a34a; margin-right:7px;}
-  @media (max-width:700px){ .hw-table,.hw-table thead,.hw-table tbody,.hw-table th,.hw-table td,.hw-table tr{ display:block;} .hw-table th{ display:none;} .hw-table td{ border-bottom:1px solid var(--border);} }
   @media (prefers-reduced-motion: reduce){ .hw-fcore::before,.hw-fcore::after{ animation:none;} }
 
   /* SOLUTIONS */
@@ -403,57 +348,7 @@
         <p class="hw-sintro" data-i18n="hw-intro-3">We architect the agent system against your context layer and ship it into the workflows you already run, on the stack you already use. Working agents from day one, not a pilot in a sandbox.</p>
       </header>
       <div class="hw-visual-frame">
-      <div class="demo-tabs" data-tabgroup="hwdeploy">
-        <button class="demo-tab on" data-tab="hwd-roll" data-i18n="hw-tab-rollout">Controlled rollout</button>
-        <button class="demo-tab" data-tab="hwd-any" data-i18n="hw-tab-anywhere">Deploy anywhere</button>
-      </div>
-      <div class="demo-panel">
-        <div class="demo-tabpane on" data-pane="hwd-roll">
-          <div class="hw-rollpad">
-            <div class="hw-rolllabel" data-i18n="hw-roll-label">How an agent reaches full production</div>
-            <div class="hw-phases">
-              <span class="track"></span><span class="fill"></span>
-              <div class="hw-phase"><span class="dot"></span><div class="ph" data-i18n="hw-phase-01">Phase 01</div><h4 data-i18n="hw-phase-01-title">Shadow</h4><p data-i18n="hw-phase-01-desc">The agent watches real work and proposes what it would do. It doesn't act yet, you see how it thinks.</p></div>
-              <div class="hw-phase"><span class="dot"></span><div class="ph" data-i18n="hw-phase-02">Phase 02</div><h4 data-i18n="hw-phase-02-title">First cases</h4><p data-i18n="hw-phase-02-desc">It starts handling a slice of real volume. You review every action before it counts.</p></div>
-              <div class="hw-phase"><span class="dot"></span><div class="ph" data-i18n="hw-phase-03">Phase 03</div><h4 data-i18n="hw-phase-03-title">Most volume</h4><p data-i18n="hw-phase-03-desc">Proven on the common paths, it takes the majority. Exceptions still route to you.</p></div>
-              <div class="hw-phase"><span class="dot"></span><div class="ph" data-i18n="hw-phase-04">Phase 04</div><h4 data-i18n="hw-phase-04-title">Fully live</h4><p data-i18n="hw-phase-04-desc">Running the workflow end to end, flagging you only where a human call is needed.</p></div>
-            </div>
-          </div>
-        </div>
-        <div class="demo-tabpane" data-pane="hwd-any">
-          <div class="hw-rollpad">
-            <div class="hw-rolllabel" data-i18n="hw-any-label">Wherever your operation already lives</div>
-            <div class="hw-deploy-grid">
-              <div class="hw-dcell">
-                <span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0a0a0a" stroke-width="1.5"><path d="M6 16a3.5 3.5 0 01-.5-6.96A5 5 0 0115 7.5a3.5 3.5 0 013 6.5"/><path d="M6 16h12"/></svg></span>
-                <h4 data-i18n="hw-deploy1-title">Your cloud</h4>
-                <p data-i18n="hw-deploy1-desc">Deployed into your own cloud environment. Your data never leaves it.</p>
-              </div>
-              <div class="hw-dcell">
-                <span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0a0a0a" stroke-width="1.5"><rect x="3" y="5" width="18" height="5"/><rect x="3" y="14" width="18" height="5"/><line x1="6.5" y1="7.5" x2="6.5" y2="7.5" stroke-linecap="round" stroke-width="2"/><line x1="6.5" y1="16.5" x2="6.5" y2="16.5" stroke-linecap="round" stroke-width="2"/></svg></span>
-                <h4 data-i18n="hw-deploy2-title">On-prem</h4>
-                <p data-i18n="hw-deploy2-desc">Runs inside your own infrastructure when compliance requires it.</p>
-              </div>
-              <div class="hw-dcell">
-                <span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0a0a0a" stroke-width="1.5"><rect x="3" y="4" width="7" height="7"/><rect x="14" y="4" width="7" height="7"/><rect x="3" y="15" width="7" height="5"/><rect x="14" y="15" width="7" height="5"/></svg></span>
-                <h4 data-i18n="hw-deploy3-title">Your existing stack</h4>
-                <p data-i18n="hw-deploy3-desc">Connects to the CRM, ERP and tools you already run. No rip and replace.</p>
-              </div>
-              <div class="hw-dcell">
-                <span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#0a0a0a" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg></span>
-                <h4 data-i18n="hw-deploy4-title">Inside your tools</h4>
-                <p data-i18n="hw-deploy4-desc">Works where your team already works. No new interface to learn.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="demo-cells four">
-        <div class="cell"><div class="ct" data-i18n="hw-3-cell1-title">On your existing stack</div><div class="cd" data-i18n="hw-3-cell1-desc">No rip and replace, no migration project.</div></div>
-        <div class="cell"><div class="ct" data-i18n="hw-3-cell2-title">Inside live workflows</div><div class="cd" data-i18n="hw-3-cell2-desc">The real process, not a demo environment.</div></div>
-        <div class="cell"><div class="ct" data-i18n="hw-3-cell3-title">From day one</div><div class="cd" data-i18n="hw-3-cell3-desc">Working agents from the first deployment.</div></div>
-        <div class="cell"><div class="ct" data-i18n="hw-3-cell4-title">Staged rollout</div><div class="cd" data-i18n="hw-3-cell4-desc">Live in phases, never one risky switch.</div></div>
-      </div>
+        <img class="hw-screenshot" src="/assets/hw/deploy-screenshot.png" width="2049" height="768" alt="" loading="lazy">
       </div>
     </div>
 
@@ -466,51 +361,7 @@
         <p class="hw-sintro" data-i18n="hw-intro-4">Everything you deployed, in one place. What each agent is saving, what it's doing right now, and where it needs your call, department by department.</p>
       </header>
       <div class="hw-visual-frame">
-      <div class="demo-tabs" data-tabgroup="hwctrl">
-        <button class="demo-tab on" data-tab="hwc-save" data-i18n="hw-tab-savings">Savings</button>
-        <button class="demo-tab" data-tab="hwc-ctrl" data-i18n="hw-tab-control">Control</button>
-        <button class="demo-tab" data-tab="hwc-live" data-i18n="hw-tab-live">Live activity</button>
-      </div>
-      <div class="demo-panel">
-        <div class="demo-tabpane on" data-pane="hwc-save">
-          <div class="hw-bignum">
-            <span class="n">$17.6k</span>
-            <span class="l" data-i18n="hw-save-caption">saved this month · across 4 live agents</span>
-          </div>
-          <table class="hw-table">
-            <tr><th data-i18n="hw-th-agent">Agent</th><th data-i18n="hw-th-dept">Department</th><th data-i18n="hw-th-saving">Monthly saving</th></tr>
-            <tr><td class="name" data-i18n="hw-agent-orderintake">Order intake</td><td data-i18n="hw-dept-ops">Operations</td><td class="strong"><span class="hw-bar" style="width:52px"></span>$4.2k</td></tr>
-            <tr><td class="name" data-i18n="hw-agent-recon">Reconciliation</td><td data-i18n="hw-dept-fin">Finance</td><td class="strong"><span class="hw-bar" style="width:96px"></span>$7.8k</td></tr>
-            <tr><td class="name" data-i18n="hw-agent-exception">Exception handling</td><td data-i18n="hw-dept-ops">Operations</td><td class="strong"><span class="hw-bar" style="width:26px"></span>$2.1k</td></tr>
-            <tr><td class="name" data-i18n="hw-agent-close">Close readiness</td><td data-i18n="hw-dept-fin">Finance</td><td class="strong"><span class="hw-bar" style="width:43px"></span>$3.5k</td></tr>
-          </table>
-        </div>
-        <div class="demo-tabpane" data-pane="hwc-ctrl">
-          <table class="hw-table">
-            <tr><th data-i18n="hw-th-agent">Agent</th><th data-i18n="hw-th-status">Status</th><th data-i18n="hw-th-action">Your action</th></tr>
-            <tr><td class="name" data-i18n="hw-agent-orderintake">Order intake</td><td><span class="hw-rdot"></span><span data-i18n="hw-status-running">running</span></td><td>—</td></tr>
-            <tr><td class="name" data-i18n="hw-agent-recon">Reconciliation</td><td><span class="hw-rdot"></span><span data-i18n="hw-status-running">running</span></td><td>—</td></tr>
-            <tr><td class="name" data-i18n="hw-agent-approval">Approval routing</td><td class="hw-warn" data-i18n="hw-status-paused">● paused</td><td class="hw-warn" data-i18n="hw-action-approve">needs your approval →</td></tr>
-            <tr><td class="name" data-i18n="hw-agent-exception">Exception handling</td><td><span class="hw-rdot"></span><span data-i18n="hw-status-running">running</span></td><td>—</td></tr>
-            <tr><td class="name" data-i18n="hw-agent-close">Close readiness</td><td><span class="hw-rdot"></span><span data-i18n="hw-status-running">running</span></td><td data-i18n="hw-action-review">review rules →</td></tr>
-          </table>
-        </div>
-        <div class="demo-tabpane" data-pane="hwc-live">
-          <table class="hw-table">
-            <tr><th data-i18n="hw-th-time">Time</th><th data-i18n="hw-th-agent">Agent</th><th data-i18n="hw-th-action-log">Action</th></tr>
-            <tr><td>09:42:07</td><td class="name" data-i18n="hw-agent-orderintake">Order intake</td><td><span class="hw-ok">✓</span><span data-i18n="hw-log-1">Validated order #8841, flagged date mismatch</span></td></tr>
-            <tr><td>09:42:03</td><td class="name" data-i18n="hw-agent-recon">Reconciliation</td><td><span class="hw-ok">✓</span><span data-i18n="hw-log-2">Matched 12 invoices to ledger</span></td></tr>
-            <tr><td>09:41:58</td><td class="name" data-i18n="hw-agent-exception">Exception handling</td><td><span class="hw-ok">✓</span><span data-i18n="hw-log-3">Routed client #402 to manual review</span></td></tr>
-            <tr><td>09:41:49</td><td class="name" data-i18n="hw-agent-orderintake">Order intake</td><td><span class="hw-ok">✓</span><span data-i18n="hw-log-4">Created order #8840 from email</span></td></tr>
-          </table>
-        </div>
-      </div>
-      <div class="demo-cells four">
-        <div class="cell"><div class="ct" data-i18n="hw-4-cell1-title">Live status</div><div class="cd" data-i18n="hw-4-cell1-desc">Every agent, running or paused, in real time.</div></div>
-        <div class="cell"><div class="ct" data-i18n="hw-4-cell2-title">Savings measured</div><div class="cd" data-i18n="hw-4-cell2-desc">What each agent saves per month. The Medidor.</div></div>
-        <div class="cell"><div class="ct" data-i18n="hw-4-cell3-title">Human-in-the-loop</div><div class="cd" data-i18n="hw-4-cell3-desc">Approvals exactly where you want them.</div></div>
-        <div class="cell"><div class="ct" data-i18n="hw-4-cell4-title">Engineers on</div><div class="cd" data-i18n="hw-4-cell4-desc">We stay to sharpen and add new work.</div></div>
-      </div>
+        <img class="hw-screenshot" src="/assets/hw/control-screenshot.png" width="1551" height="769" alt="" loading="lazy">
       </div>
     </div>
 
@@ -669,22 +520,6 @@
 </script>
 
 <script>
-/* generic demo tab switcher — used by #automate and the how-we-do-it stages */
-(function(){
-  document.querySelectorAll('[data-tabgroup]').forEach(function(group){
-    var name = group.dataset.tabgroup;
-    var panelWrap = group.nextElementSibling;
-    if(!panelWrap) return;
-    group.querySelectorAll('[data-tab]').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        var key = btn.dataset.tab;
-        group.querySelectorAll('[data-tab]').forEach(function(b){ b.classList.toggle('on', b===btn); });
-        panelWrap.querySelectorAll('[data-pane]').forEach(function(p){ p.classList.toggle('on', p.dataset.pane===key); });
-      });
-    });
-  });
-})();
-
 /* stage 02 — animated synapse diagram (decorative, no text to translate) */
 (function(){
   var NS = 'http://www.w3.org/2000/svg';
@@ -768,76 +603,10 @@
     "hw-eyebrow-3": "02 . Despliegue",
     "hw-title-3": "Los agentes salen en vivo en tus flujos reales",
     "hw-intro-3": "Diseñamos el sistema de agentes contra tu capa de contexto y lo llevamos a los flujos que ya corrés, sobre el stack que ya usás. Agentes funcionando desde el día uno, no un piloto en un sandbox.",
-    "hw-tab-rollout": "Despliegue controlado",
-    "hw-tab-anywhere": "Se despliega donde sea",
-    "hw-roll-label": "Cómo llega un agente a producción plena",
-    "hw-phase-01": "Fase 01",
-    "hw-phase-01-title": "Shadow",
-    "hw-phase-01-desc": "El agente observa el trabajo real y propone qué haría. Todavía no actúa, vos ves cómo piensa.",
-    "hw-phase-02": "Fase 02",
-    "hw-phase-02-title": "Primeros casos",
-    "hw-phase-02-desc": "Empieza a manejar una porción del volumen real. Revisás cada acción antes de que cuente.",
-    "hw-phase-03": "Fase 03",
-    "hw-phase-03-title": "La mayoría del volumen",
-    "hw-phase-03-desc": "Probado en los caminos comunes, toma la mayoría. Las excepciones te siguen llegando a vos.",
-    "hw-phase-04": "Fase 04",
-    "hw-phase-04-title": "Totalmente en vivo",
-    "hw-phase-04-desc": "Corre el flujo de punta a punta, y solo te avisa donde hace falta una decisión humana.",
-    "hw-any-label": "Donde sea que ya viva tu operación",
-    "hw-deploy1-title": "Tu nube",
-    "hw-deploy1-desc": "Desplegado dentro de tu propio entorno de nube. Tus datos nunca salen de ahí.",
-    "hw-deploy2-title": "On-prem",
-    "hw-deploy2-desc": "Corre dentro de tu propia infraestructura cuando el compliance lo exige.",
-    "hw-deploy3-title": "Tu stack existente",
-    "hw-deploy3-desc": "Se conecta al CRM, ERP y herramientas que ya usás. Sin arrancar de cero.",
-    "hw-deploy4-title": "Dentro de tus herramientas",
-    "hw-deploy4-desc": "Funciona donde ya trabaja tu equipo. Sin una interfaz nueva que aprender.",
-    "hw-3-cell1-title": "Sobre tu stack existente",
-    "hw-3-cell1-desc": "Sin arrancar de cero, sin proyecto de migración.",
-    "hw-3-cell2-title": "Dentro de flujos en vivo",
-    "hw-3-cell2-desc": "El proceso real, no un entorno de demo.",
-    "hw-3-cell3-title": "Desde el día uno",
-    "hw-3-cell3-desc": "Agentes funcionando desde el primer despliegue.",
-    "hw-3-cell4-title": "Despliegue por etapas",
-    "hw-3-cell4-desc": "En vivo por fases, nunca un solo cambio riesgoso.",
 
     "hw-eyebrow-4": "03 . Control",
     "hw-title-4": "Un panel sobre cada agente",
     "hw-intro-4": "Todo lo que desplegaste, en un solo lugar. Qué está ahorrando cada agente, qué está haciendo ahora mismo, y dónde necesita tu decisión, área por área.",
-    "hw-tab-savings": "Ahorros",
-    "hw-tab-control": "Control",
-    "hw-tab-live": "Actividad en vivo",
-    "hw-save-caption": "ahorrado este mes · en 4 agentes en vivo",
-    "hw-th-agent": "Agente",
-    "hw-th-dept": "Área",
-    "hw-th-saving": "Ahorro mensual",
-    "hw-agent-orderintake": "Ingesta de pedidos",
-    "hw-dept-ops": "Operaciones",
-    "hw-agent-recon": "Conciliación",
-    "hw-dept-fin": "Finanzas",
-    "hw-agent-exception": "Manejo de excepciones",
-    "hw-agent-close": "Cierre contable",
-    "hw-th-status": "Estado",
-    "hw-th-action": "Tu acción",
-    "hw-agent-approval": "Ruteo de aprobaciones",
-    "hw-status-running": "en marcha",
-    "hw-status-paused": "● pausado",
-    "hw-action-approve": "necesita tu aprobación →",
-    "hw-action-review": "revisar reglas →",
-    "hw-th-time": "Hora",
-    "hw-th-action-log": "Acción",
-    "hw-log-1": "Validó el pedido #8841, marcó un desfasaje de fecha",
-    "hw-log-2": "Conectó 12 facturas con el libro mayor",
-    "hw-log-3": "Derivó al cliente #402 a revisión manual",
-    "hw-log-4": "Creó el pedido #8840 desde un email",
-    "hw-4-cell1-title": "Estado en vivo",
-    "hw-4-cell1-desc": "Cada agente, corriendo o pausado, en tiempo real.",
-    "hw-4-cell2-title": "Ahorros medidos",
-    "hw-4-cell2-desc": "Lo que ahorra cada agente por mes. El Medidor.",
-    "hw-4-cell3-title": "Con humano en el loop",
-    "hw-4-cell3-desc": "Aprobaciones exactamente donde las querés.",
-    "hw-4-cell4-title": "Ingenieros activos",
-    "hw-4-cell4-desc": "Seguimos ahí para afinar y sumar trabajo nuevo.",
     "governance-h2": "Un sistema gobernable",
     "governance-lede": "Hecho para empresas que tienen que responder por lo que hace su IA.",
     "governance-1-title": "Trazabilidad completa",
