@@ -204,6 +204,7 @@
   .hw-sintro{ margin-top:24px; font-size:18px; color:var(--ink-secondary); line-height:1.55; max-width:720px;}
 
   .hw-visual-frame{ margin-top:28px; padding:clamp(14px,2.4vw,34px); border-radius:20px; background-image:url("/assets/hw/gradient-frame.png"); background-size:cover; background-position:center;}
+  .hw-visual-frame picture{ display:block;}
   .hw-screenshot{ display:block; width:100%; height:auto; border-radius:16px;}
 
   .hw-flowmix{ display:grid; grid-template-columns:1.2fr 56px 90px 56px 1fr; gap:20px; align-items:stretch; border:1px solid var(--border); border-radius:12px; background:var(--bg-subtle); padding:32px;}
@@ -335,7 +336,10 @@
         <p class="hw-sintro" data-i18n="hw-intro-1">It talks to every team in parallel and surfaces how the work actually runs: the exceptions, the workarounds, the rules nobody wrote down. No forms, no consultants with clipboards.</p>
       </header>
       <div class="hw-visual-frame">
-        <img class="hw-screenshot" src="/assets/hw/audit-screenshot.png" width="1550" height="680" alt="" loading="lazy">
+        <picture>
+          <source srcset="/assets/hw/audit-screenshot.webp" type="image/webp">
+          <img class="hw-screenshot" src="/assets/hw/audit-screenshot.png" width="1550" height="680" alt="Screenshot of the agent interview chat, with tags for every team interviewed in parallel, autonomous operation, and structured output." loading="lazy">
+        </picture>
       </div>
     </div>
 
@@ -348,7 +352,10 @@
         <p class="hw-sintro" data-i18n="hw-intro-3">We architect the agent system against your context layer and ship it into the workflows you already run, on the stack you already use. Working agents from day one, not a pilot in a sandbox.</p>
       </header>
       <div class="hw-visual-frame">
-        <img class="hw-screenshot" src="/assets/hw/deploy-screenshot.png" width="2049" height="768" alt="" loading="lazy">
+        <picture>
+          <source srcset="/assets/hw/deploy-screenshot.webp" type="image/webp">
+          <img class="hw-screenshot" src="/assets/hw/deploy-screenshot.png" width="2049" height="768" alt="Screenshot of the rollout progress tracker, showing phases Shadow, First cases, Most volume, and Fully live." loading="lazy">
+        </picture>
       </div>
     </div>
 
@@ -361,7 +368,10 @@
         <p class="hw-sintro" data-i18n="hw-intro-4">Everything you deployed, in one place. What each agent is saving, what it's doing right now, and where it needs your call, department by department.</p>
       </header>
       <div class="hw-visual-frame">
-        <img class="hw-screenshot" src="/assets/hw/control-screenshot.png" width="1551" height="769" alt="" loading="lazy">
+        <picture>
+          <source srcset="/assets/hw/control-screenshot.webp" type="image/webp">
+          <img class="hw-screenshot" src="/assets/hw/control-screenshot.png" width="1551" height="769" alt="Screenshot of the savings dashboard, showing $17.6k saved this month across four live agents, with per-agent savings for order intake, reconciliation, exception handling, and close readiness." loading="lazy">
+        </picture>
       </div>
     </div>
 
