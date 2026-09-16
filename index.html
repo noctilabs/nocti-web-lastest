@@ -338,7 +338,7 @@
       <div class="hw-visual-frame">
         <picture>
           <source srcset="/assets/hw/audit-screenshot.webp" type="image/webp">
-          <img class="hw-screenshot" src="/assets/hw/audit-screenshot.png" width="1550" height="680" alt="Screenshot of the agent interview chat, with tags for every team interviewed in parallel, autonomous operation, and structured output." loading="lazy">
+          <img class="hw-screenshot" src="/assets/hw/audit-screenshot.png" width="1550" height="680" data-i18n-alt="hw-audit-alt" alt="Screenshot of the agent interview chat, with tags for every team interviewed in parallel, autonomous operation, and structured output." loading="lazy">
         </picture>
       </div>
     </div>
@@ -354,7 +354,7 @@
       <div class="hw-visual-frame">
         <picture>
           <source srcset="/assets/hw/deploy-screenshot.webp" type="image/webp">
-          <img class="hw-screenshot" src="/assets/hw/deploy-screenshot.png" width="2049" height="768" alt="Screenshot of the rollout progress tracker, showing phases Shadow, First cases, Most volume, and Fully live." loading="lazy">
+          <img class="hw-screenshot" src="/assets/hw/deploy-screenshot.png" width="2049" height="768" data-i18n-alt="hw-deploy-alt" alt="Screenshot of the rollout progress tracker, showing phases Shadow, First cases, Most volume, and Fully live." loading="lazy">
         </picture>
       </div>
     </div>
@@ -370,7 +370,7 @@
       <div class="hw-visual-frame">
         <picture>
           <source srcset="/assets/hw/control-screenshot.webp" type="image/webp">
-          <img class="hw-screenshot" src="/assets/hw/control-screenshot.png" width="1551" height="769" alt="Screenshot of the savings dashboard, showing $17.6k saved this month across four live agents, with per-agent savings for order intake, reconciliation, exception handling, and close readiness." loading="lazy">
+          <img class="hw-screenshot" src="/assets/hw/control-screenshot.png" width="1551" height="769" data-i18n-alt="hw-control-alt" alt="Screenshot of the savings dashboard, showing $17.6k saved this month across four live agents, with per-agent savings for order intake, reconciliation, exception handling, and close readiness." loading="lazy">
         </picture>
       </div>
     </div>
@@ -609,14 +609,17 @@
     "hw-eyebrow-1": "01 . Auditoría",
     "hw-title-1": "Un agente que entrevista a toda tu empresa",
     "hw-intro-1": "Habla con cada equipo en paralelo y saca a la luz cómo funciona el trabajo en la realidad: las excepciones, las vueltas que se le dan, las reglas que nadie escribió. Sin formularios, sin consultores con carpeta.",
+    "hw-audit-alt": "Captura de pantalla del chat de entrevista del agente, con etiquetas para todo el equipo entrevistado en paralelo, operación autónoma y salida estructurada.",
 
     "hw-eyebrow-3": "02 . Despliegue",
     "hw-title-3": "Los agentes salen en vivo en tus flujos reales",
     "hw-intro-3": "Diseñamos el sistema de agentes contra tu capa de contexto y lo llevamos a los flujos que ya corrés, sobre el stack que ya usás. Agentes funcionando desde el día uno, no un piloto en un sandbox.",
+    "hw-deploy-alt": "Captura de pantalla del seguimiento de despliegue, con las fases Shadow, Primeros casos, La mayoría del volumen y Totalmente en vivo.",
 
     "hw-eyebrow-4": "03 . Control",
     "hw-title-4": "Un panel sobre cada agente",
     "hw-intro-4": "Todo lo que desplegaste, en un solo lugar. Qué está ahorrando cada agente, qué está haciendo ahora mismo, y dónde necesita tu decisión, área por área.",
+    "hw-control-alt": "Captura de pantalla del panel de ahorros, que muestra $17.6k ahorrados este mes en cuatro agentes activos, con el ahorro de cada uno para ingesta de pedidos, conciliación, manejo de excepciones y cierre contable.",
     "governance-h2": "Un sistema gobernable",
     "governance-lede": "Hecho para empresas que tienen que responder por lo que hace su IA.",
     "governance-1-title": "Trazabilidad completa",
@@ -667,6 +670,15 @@
     EN[key].push(el);
   });
 
+  /* same mechanism as EN/apply above, but for attributes (e.g. alt text) instead of innerHTML */
+  var ATTR_NODES = document.querySelectorAll('[data-i18n-alt]');
+  var ENAttr = {};
+  ATTR_NODES.forEach(function(el){
+    var key = el.getAttribute('data-i18n-alt');
+    if(!(key in ENAttr)) ENAttr[key] = [];
+    ENAttr[key].push(el);
+  });
+
   var current = 'en';
   function apply(lang){
     Object.keys(EN).forEach(function(key){
@@ -676,6 +688,16 @@
           el.innerHTML = ES[key];
         } else if(el.hasAttribute('data-en-cache')){
           el.innerHTML = el.getAttribute('data-en-cache');
+        }
+      });
+    });
+    Object.keys(ENAttr).forEach(function(key){
+      ENAttr[key].forEach(function(el){
+        if(lang === 'es' && ES[key]){
+          if(!el.hasAttribute('data-en-cache-alt')) el.setAttribute('data-en-cache-alt', el.alt);
+          el.alt = ES[key];
+        } else if(el.hasAttribute('data-en-cache-alt')){
+          el.alt = el.getAttribute('data-en-cache-alt');
         }
       });
     });
