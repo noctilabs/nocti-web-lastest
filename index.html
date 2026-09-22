@@ -147,12 +147,16 @@
   @media (max-width:900px){ .manifesto-row{ grid-template-columns:1fr;} .manifesto-col:first-child{ border-right:none; border-bottom:1px solid var(--border);} }
   .gap-diagram{ margin-top:48px;}
 
+  #automate h2{ max-width:none;}
+  #automate .block-lede{ max-width:490px;}
   .gov-row{ margin-top:64px; display:grid; grid-template-columns:repeat(3,1fr); column-gap:48px;}
   .gov-col{ padding-left:24px; border-left:1px solid var(--border-strong);}
   .gov-col:first-child{ padding-left:0; border-left:none;}
   .gov-icon{ display:block; margin-bottom:28px;}
-  .gov-col h3{ font-size:22px; font-weight:600; letter-spacing:-0.01em; line-height:1.25;}
-  .gov-col p{ margin-top:32px; font-size:15.5px; color:var(--ink-secondary); line-height:1.55;}
+  .gov-col h3{ font-size:22px; font-weight:600; letter-spacing:-0.01em; line-height:1.25; max-width:160px;}
+  .gov-col:nth-child(2) h3{ max-width:210px;}
+  .gov-col:nth-child(3) h3{ max-width:270px;}
+  .gov-col p{ margin-top:32px; font-size:15.5px; color:var(--ink-secondary); line-height:1.55; max-width:240px;}
   @media (max-width:900px){ .gov-row{ grid-template-columns:1fr; row-gap:40px;} .gov-col{ padding-left:0; border-left:none; padding-top:32px; border-top:1px solid var(--border-strong);} .gov-col:first-child{ padding-top:0; border-top:none;} }
   .gov-banner{ margin-top:80px; border-radius:clamp(24px,6vw,64px); aspect-ratio:1355/514; background-image:url("/assets/hw/gradient-frame.png"); background-size:cover; background-position:center;}
   @media (max-width:640px){ .gov-banner{ aspect-ratio:4/3;} }
@@ -404,7 +408,7 @@
     </div>
     <div class="gov-row" data-reveal>
       <div class="gov-col">
-        <svg class="gov-icon" width="44" height="35" viewBox="0 0 41.3 32.45" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="gov-icon" width="52" height="41" viewBox="0 0 41.3 32.45" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M0 4.425H41.3" stroke="var(--ink)" stroke-width="1.25"/>
           <path d="M0 16.225H41.3" stroke="var(--ink)" stroke-width="1.25"/>
           <path d="M0 28.025H41.3" stroke="var(--ink)" stroke-width="1.25"/>
@@ -416,7 +420,7 @@
         <p data-i18n="governance-1-desc">Every run logs what it did, with what data, what escalated, and who approved it.</p>
       </div>
       <div class="gov-col">
-        <svg class="gov-icon" width="44" height="20" viewBox="0 0 44 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="gov-icon" width="52" height="24" viewBox="0 0 44 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect x="2" y="6" width="40" height="8" rx="4" stroke="var(--ink)" stroke-width="1.25"/>
           <line x1="15" y1="10" x2="29" y2="10" stroke="var(--ink)" stroke-width="1.25" stroke-dasharray="3 3"/>
           <circle cx="22" cy="10" r="2" fill="var(--ink)"/>
@@ -425,7 +429,7 @@
         <p data-i18n="governance-2-desc">You define what each agent can do and where it has to stop and ask for approval.</p>
       </div>
       <div class="gov-col">
-        <svg class="gov-icon" width="44" height="38" viewBox="0 0 40 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="gov-icon" width="52" height="45" viewBox="0 0 40 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect x="2" y="2" width="36" height="8" rx="4" stroke="var(--ink)" stroke-width="1.25"/>
           <rect x="2" y="13" width="36" height="8" rx="4" stroke="var(--ink)" stroke-width="1.25" stroke-dasharray="3.5 3.5"/>
           <rect x="2" y="24" width="36" height="8" rx="4" stroke="var(--ink)" stroke-width="1.25"/>
