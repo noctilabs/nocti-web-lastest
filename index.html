@@ -223,12 +223,7 @@
 
   /* SOLUTIONS */
   /* BRIDGE */
-  .bridge-block{ background:var(--black); color:#fff; border-bottom:none;}
-  .bridge-block h2{ color:#fff;}
-  .bridge-block .eyebrow{ color:var(--ink-muted);}
-  .bridge-block .block-lede{ color:rgba(255,255,255,0.7);}
-  .bridge-block .block-lede strong{ color:#fff;}
-  .bridge-statement{ font-size:clamp(28px,4.4vw,52px); line-height:1.2; max-width:none; text-align:center; margin:0 auto;}
+  .block .bridge-statement{ font-size:clamp(28px,4.4vw,52px); line-height:1.2; max-width:none; text-align:center; margin:0 auto;}
 
   /* CTA */
   .cta{ background-color:var(--bg); padding:100px 0;}
@@ -265,7 +260,6 @@
 
   .js [data-reveal]{ opacity:0; transform:translateY(12px); transition:opacity 300ms var(--ease-out), transform 300ms var(--ease-out);}
   .js [data-reveal].is-visible{ opacity:1; transform:translateY(0);}
-  .js .bridge-block [data-reveal]{ transition-duration:420ms;}
   .js [data-reveal-group] > *{ opacity:0; transform:translateY(10px); transition:opacity 300ms var(--ease-out), transform 300ms var(--ease-out);}
   .js [data-reveal-group].is-visible > *{ opacity:1; transform:translateY(0);}
   .js [data-reveal-group] > :nth-child(2){ transition-delay:40ms;}
@@ -370,6 +364,12 @@
         </picture>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap" data-reveal>
+    <h2 class="bridge-statement" data-i18n="bridge-statement">A tool hands you software and leaves.<br>A consultancy hands you a report and leaves.<br>We leave agents working and improving.</h2>
   </div>
 </section>
 
