@@ -1,0 +1,11 @@
+{
+  "name": "nocti-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "@portabletext/to-html": "^6.0.0"
+  }
+}

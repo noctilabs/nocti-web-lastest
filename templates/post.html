@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NoctiLabs · Why we build platform and engineering as one team</title>
-<meta name="description" content="A platform without engineering hands you the Production Gap and calls it a feature. Why NoctiLabs refuses to pick a side.">
+<title>NoctiLabs · {{title}}</title>
+<meta name="description" content="{{description}}">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CjxnIGZpbGw9IiMwMDAwMDAiPgogIDxyZWN0IHg9IjQiIHk9IjIxIiB3aWR0aD0iNyIgaGVpZ2h0PSI3IiByeD0iMS42Ii8+CiAgPHJlY3QgeD0iMjEiIHk9IjIxIiB3aWR0aD0iNyIgaGVpZ2h0PSI3IiByeD0iMS42Ii8+CiAgPHBhdGggZD0iTTksMjEgQzksOCAyMyw4IDIzLDIxIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAwMDAiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwvZz4KPC9zdmc+">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -51,11 +51,15 @@
   .article-body p{ font-size:17px; color:var(--ink-secondary); line-height:1.75; margin-top:22px;}
   .article-body p:first-child{ margin-top:0;}
   .article-body h2{ font-size:22px; margin-top:48px;}
+  .article-body ul, .article-body ol{ font-size:17px; color:var(--ink-secondary); line-height:1.75; margin-top:22px; padding-left:24px;}
+  .article-body li{ margin-top:8px;}
+  .article-body strong{ color:var(--ink); font-weight:600;}
+  .article-body a{ color:var(--ink); text-decoration:underline; text-underline-offset:3px;}
   .article-body .pull{ font-family:var(--font-display); font-weight:600; font-size:22px; color:var(--ink); line-height:1.45; margin:36px 0; letter-spacing:-0.01em;}
 
   .article-cta{ max-width:680px; margin:0 auto; padding:20px 32px 100px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
   .toc{ position:fixed; top:0; left:max(24px, calc((100vw - 680px)/2 - 250px)); width:210px; display:none;}
-  @media (min-width:1200px){ .toc{ display:block;} }
+  @media (min-width:1200px){ .toc{ display:block;} .toc[hidden]{ display:none;} }
   .toc-title{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:14px;}
   .toc a{ position:relative; display:block; padding:6px 0 6px 20px; font-size:13px; color:var(--ink-muted); line-height:1.4; transition:color .15s;}
   .toc a::before{ content:""; position:absolute; left:0; top:50%; transform:translateY(-50%); width:7px; height:7px; border-radius:50%; border:1.5px solid var(--border-strong); background:transparent; transition:background .15s, border-color .15s;}
@@ -92,26 +96,16 @@
 
 <header class="article-head">
   <div class="wrap">
-    <span class="eyebrow">Company</span>
-    <h1>Why we build platform and engineering as one team</h1>
+    <span class="eyebrow" data-i18n="post-category">{{category}}</span>
+    <h1 data-i18n="post-title">{{title}}</h1>
     <div class="article-meta">
-      <span>Apr 22, 2026</span><span>·</span><span>4 min read</span>
+      <span>{{date}}</span><span>·</span><span data-i18n="post-read">{{read}}</span>
     </div>
   </div>
 </header>
 
-<article class="article-body">
-
-  <p>Most companies in this space pick a side. Either you're a platform, selling software and leaving the client to figure out deployment, or you're a services shop, billing hours with no product to show for it once the engagement ends. We built NoctiLabs to not have to choose.</p>
-
-  <h2>Why the split doesn't work</h2>
-  <p>A platform without engineering behind it hands you the Production Gap and calls it a feature: configure it yourself. A services team without a real platform behind it rebuilds the same primitives from scratch on every engagement, and you're left maintaining something nobody productized.</p>
-
-  <p class="pull">Tools don't close the Production Gap. Engineering does.</p>
-
-  <h2>What it looks like in practice</h2>
-  <p>Our team architects, deploys, and improves your agents in production, shoulder to shoulder with yours, using an internal platform we control end to end. You get the accountability of a team that stays on, and the leverage of a system that compounds instead of resetting on every project.</p>
-
+<article class="article-body" data-i18n="post-body">
+{{body}}
 </article>
 
 <div class="article-cta">
@@ -177,24 +171,31 @@
 
 <script>
 (function(){
-  var headings = Array.prototype.slice.call(document.querySelectorAll(".article-body h2"));
-  if(!headings.length) return;
+  var headings = [], links = [];
   var toc = document.createElement("nav");
   toc.className = "toc";
   toc.setAttribute("aria-label", "Table of contents");
-  var title = document.createElement("div");
-  title.className = "toc-title";
-  title.textContent = "On this page";
-  toc.appendChild(title);
-  var links = headings.map(function(h, i){
-    if(!h.id) h.id = "section-" + (i + 1);
-    var a = document.createElement("a");
-    a.href = "#" + h.id;
-    a.textContent = h.textContent;
-    toc.appendChild(a);
-    return a;
-  });
   document.body.appendChild(toc);
+  /* Rebuilt when the language toggle swaps the article body */
+  function build(){
+    headings = Array.prototype.slice.call(document.querySelectorAll(".article-body h2"));
+    toc.innerHTML = "";
+    toc.hidden = !headings.length;
+    var title = document.createElement("div");
+    title.className = "toc-title";
+    title.textContent = document.documentElement.lang === "es" ? "En esta página" : "On this page";
+    toc.appendChild(title);
+    links = headings.map(function(h, i){
+      if(!h.id) h.id = "section-" + (i + 1);
+      var a = document.createElement("a");
+      a.href = "#" + h.id;
+      a.textContent = h.textContent;
+      toc.appendChild(a);
+      return a;
+    });
+    onScroll();
+  }
+  document.addEventListener("nocti-lang", build);
   function onScroll(){
     var current = -1;
     for(var i = 0; i < headings.length; i++){
@@ -210,8 +211,12 @@
   window.addEventListener("scroll", function(){ positionToc(); onScroll(); }, {passive:true});
   window.addEventListener("resize", positionToc);
   positionToc();
-  onScroll();
+  build();
 })();
+</script>
+
+<script>
+window.NOCTI_ES_PAGE = {{es}};
 </script>
 
 
@@ -286,6 +291,7 @@
     var btn2 = document.getElementById('lang-toggle-mobile');
     if(btn1) btn1.textContent = label;
     if(btn2) btn2.textContent = label + ' / ' + (lang === 'es' ? 'EN' : 'ES');
+    document.dispatchEvent(new Event('nocti-lang'));
   }
 
   function toggle(){ apply(current === 'en' ? 'es' : 'en'); }

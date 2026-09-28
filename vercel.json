@@ -1,7 +1,16 @@
 {
   "cleanUrls": true,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "redirects": [
     { "source": "/services", "destination": "/", "permanent": true },
-    { "source": "/es", "destination": "/", "permanent": true }
+    { "source": "/es", "destination": "/", "permanent": true },
+    { "source": "/blog-post-introducing-noctilabs", "destination": "/blog/introducing-noctilabs", "permanent": true },
+    { "source": "/blog-post-production-gap", "destination": "/blog/production-gap", "permanent": true },
+    { "source": "/blog-post-opportunity-audit", "destination": "/blog/opportunity-audit", "permanent": true },
+    { "source": "/blog-post-model-agnostic", "destination": "/blog/model-agnostic", "permanent": true },
+    { "source": "/blog-post-legacy-stacks", "destination": "/blog/legacy-stacks", "permanent": true },
+    { "source": "/blog-post-agent-reconciliation", "destination": "/blog/agent-reconciliation", "permanent": true },
+    { "source": "/blog-post-platform-engineering", "destination": "/blog/platform-engineering", "permanent": true }
   ]
 }
